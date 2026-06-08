@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordmed Instruments — Professional Medical Equipment, Oslo</title>
+<meta name="description" content="Oslo-based distributor of professional dental and surgical instruments. CE-certified, factory-direct from ISO 9001 certified manufacturers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root {
+  --navy: #0b1d35; --navy-soft: #162d4a;
+  --gold: #b8935a; --gold-light: #d4b07a;
+  --offwhite: #f7f5f1; --white: #ffffff;
+  --ink: #0b1d35; --muted: #6b7280;
+  --border: rgba(11,29,53,0.1); --border-light: rgba(11,29,53,0.06);
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; height: 60px; display: flex; align-items: center; justify-content: space-between; background: rgba(247,245,241,0.93); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-light); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--navy); text-decoration: none; letter-spacing: 0.03em; }
+.nav-logo span { color: var(--gold); }
+.nav-center { display: flex; gap: 36px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-center a { font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-center a:hover { color: var(--navy); }
+.lang-toggle { display: flex; gap: 2px; background: rgba(11,29,53,0.07); border-radius: 20px; padding: 3px; }
+.lang-btn { border: none; background: none; padding: 4px 13px; border-radius: 16px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; color: var(--muted); font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.lang-btn.active { background: var(--navy); color: white; }
+
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 60px 6% 80px; position: relative; overflow: hidden; background: var(--navy); }
+.hero-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Cormorant Garamond', serif; font-size: clamp(120px, 18vw, 260px); font-weight: 400; color: rgba(255,255,255,0.028); white-space: nowrap; pointer-events: none; letter-spacing: -0.02em; user-select: none; }
+.hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.022) 0px, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 25%); }
+.hero-content { position: relative; z-index: 2; max-width: 720px; }
+.hero-label { font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; display: flex; align-items: center; gap: 14px; }
+.hero-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 88px); font-weight: 400; line-height: 1.0; color: white; letter-spacing: -0.02em; margin-bottom: 32px; }
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.5); max-width: 440px; line-height: 1.8; margin-bottom: 52px; }
+.hero-actions { display: flex; align-items: center; gap: 32px; }
+.btn-gold { background: var(--gold); color: var(--navy); padding: 14px 36px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-ghost { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+.btn-ghost:hover { color: white; border-color: rgba(255,255,255,0.5); }
+.hero-bar { position: relative; z-index: 2; margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; gap: 48px; flex-wrap: wrap; }
+.hero-bar-item { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 10px; }
+.hero-bar-item::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.7; }
+
+.intro { padding: 120px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; background: var(--white); border-bottom: 1px solid var(--border-light); }
+.intro-eyebrow { font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.intro-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 52px); font-weight: 400; line-height: 1.1; color: var(--navy); letter-spacing: -0.01em; }
+.intro-left h2 em { font-style: italic; color: var(--gold); }
+.intro-right p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.9; margin-bottom: 20px; }
+.intro-right p strong { font-weight: 500; color: var(--navy); }
+.intro-link { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; display: inline-block; margin-top: 8px; transition: color 0.2s; }
+.intro-link:hover { color: var(--gold); }
+
+.products { background: var(--offwhite); padding: 120px 6%; }
+.products-header { margin-bottom: 64px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; }
+.section-eyebrow { font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 50px); font-weight: 400; line-height: 1.1; color: var(--navy); }
+.section-h2 em { font-style: italic; color: var(--gold); }
+.ph-right { font-size: 13px; font-weight: 300; color: var(--muted); max-width: 320px; line-height: 1.7; text-align: right; }
+.product-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+.product-item { display: grid; grid-template-columns: 64px 1fr auto; align-items: start; padding: 48px 0; border-bottom: 1px solid var(--border); gap: 40px; position: relative; }
+.product-item::before { content: ''; position: absolute; left: -6%; right: -6%; top: 0; bottom: 0; background: var(--navy); opacity: 0; transition: opacity 0.3s; z-index: 0; }
+.product-item:hover::before { opacity: 1; }
+.product-item:hover .prod-num { color: rgba(255,255,255,0.08); }
+.product-item:hover .prod-name { color: white; }
+.product-item:hover .prod-body { color: rgba(255,255,255,0.45); }
+.product-item:hover .prod-tag { border-color: rgba(184,147,90,0.4); color: rgba(184,147,90,0.8); }
+.product-item:hover .prod-arrow { opacity: 1; color: var(--gold); }
+.product-item > * { position: relative; z-index: 1; }
+.prod-num { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 400; color: rgba(11,29,53,0.25); letter-spacing: 0.08em; padding-top: 6px; transition: color 0.3s; }
+.prod-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--navy); margin-bottom: 14px; line-height: 1.1; letter-spacing: -0.01em; transition: color 0.3s; }
+.prod-body { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 20px; transition: color 0.3s; }
+.prod-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.prod-tag { font-size: 11px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,147,90,0.35); padding: 4px 12px; transition: all 0.3s; }
+.prod-arrow { font-size: 22px; color: var(--gold); opacity: 0; transition: opacity 0.3s; padding-top: 4px; align-self: center; }
+
+.supplier-band { background: var(--navy); padding: 80px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; overflow: hidden; }
+.supplier-band::before { content: 'QUALITY'; position: absolute; right: 3%; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: clamp(80px, 12vw, 160px); font-weight: 400; color: rgba(255,255,255,0.028); pointer-events: none; user-select: none; letter-spacing: -0.02em; }
+.supplier-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.supplier-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; color: white; line-height: 1.15; letter-spacing: -0.01em; }
+.supplier-h2 em { font-style: italic; color: var(--gold-light); }
+.supplier-card { border: 1px solid rgba(184,147,90,0.2); padding: 36px 32px; margin-bottom: 20px; position: relative; z-index: 2; }
+.supplier-card-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 10px; }
+.supplier-card-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: white; margin-bottom: 8px; }
+.supplier-card-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.7; }
+.supplier-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 2; }
+.supplier-stat { padding: 20px 16px; text-align: center; background: rgba(255,255,255,0.02); }
+.sstat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); line-height: 1; margin-bottom: 5px; }
+.sstat-txt { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.supplier-band-left { position: relative; z-index: 2; }
+.supplier-band-right { position: relative; z-index: 2; }
+
+.why { background: var(--white); padding: 120px 6%; border-bottom: 1px solid var(--border-light); }
+.why-header { margin-bottom: 72px; }
+.why-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+.why-item { background: var(--white); padding: 48px 36px; border-left: 3px solid transparent; transition: border-color 0.3s; }
+.why-item:hover { border-left-color: var(--gold); }
+.why-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: rgba(11,29,53,0.07); line-height: 1; margin-bottom: 28px; }
+.why-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+.why-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+.contact { background: var(--offwhite); padding: 120px 6%; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+.contact-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 50px); font-weight: 400; color: var(--navy); line-height: 1.1; margin-bottom: 24px; }
+.contact-left h2 em { font-style: italic; color: var(--gold); }
+.contact-left p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 48px; }
+.contact-details { display: flex; flex-direction: column; gap: 20px; }
+.contact-detail { display: flex; gap: 16px; align-items: flex-start; }
+.c-line { width: 1px; height: 36px; background: var(--gold); opacity: 0.4; flex-shrink: 0; margin-top: 4px; }
+.c-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.c-value { font-size: 14px; font-weight: 400; color: var(--navy); }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group label { font-size: 10px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.form-group input, .form-group select, .form-group textarea { background: var(--white); border: 1px solid var(--border); padding: 13px 16px; font-size: 14px; font-weight: 300; font-family: 'DM Sans', sans-serif; color: var(--navy); outline: none; transition: border-color 0.2s; border-radius: 0; appearance: none; width: 100%; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(107,114,128,0.5); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit { background: var(--navy); color: white; border: none; padding: 15px 40px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; align-self: flex-start; }
+.form-submit:hover { background: var(--navy-soft); }
+.form-success { display: none; padding: 24px 28px; background: var(--white); border-left: 3px solid var(--gold); font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+footer { background: var(--navy); padding: 40px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: white; }
+.footer-logo span { color: var(--gold); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; }
+.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+.testimonials { background: var(--navy); padding: 120px 6%; }
+.testimonials .section-eyebrow { color: var(--gold); margin-bottom: 16px; font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; }
+.testimonials .section-h2 { color: white; }
+.testimonials .section-h2 em { color: var(--gold-light); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); margin-bottom: 24px; }
+.testi-card { background: rgba(255,255,255,0.03); padding: 44px 36px; }
+.testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 400; color: var(--gold); opacity: 0.3; line-height: 0.8; margin-bottom: 20px; }
+.testi-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+.testi-name { font-size: 14px; font-weight: 500; color: white; margin-bottom: 4px; }
+.testi-role { font-size: 12px; color: var(--gold); letter-spacing: 0.06em; }
+.testi-note { font-size: 11px; color: rgba(255,255,255,0.2); font-style: italic; }
+.faq { background: var(--white); padding: 120px 6%; border-bottom: 1px solid var(--border-light); }
+.faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 100px; align-items: start; }
+.faq-right { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; font-size: 15px; font-weight: 400; color: var(--navy); gap: 20px; transition: color 0.2s; user-select: none; }
+.faq-q:hover { color: var(--gold); }
+.faq-icon { font-size: 22px; font-weight: 300; color: var(--gold); flex-shrink: 0; line-height: 1; transition: transform 0.2s; }
+.faq-icon.open { transform: rotate(45deg); }
+.faq-a { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+.faq-a.open { max-height: 200px; padding-bottom: 22px; }
+@media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } .faq-inner { grid-template-columns: 1fr; gap: 48px; } }
+
+[data-lang] { display: none; }
+[data-lang].v { display: block; }
+span[data-lang].v { display: inline; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-label { animation: fadeUp 0.6s 0.1s both ease; }
+.hero h1 { animation: fadeUp 0.7s 0.2s both ease; }
+.hero-sub { animation: fadeUp 0.6s 0.35s both ease; }
+.hero-actions { animation: fadeUp 0.6s 0.45s both ease; }
+.hero-bar { animation: fadeUp 0.6s 0.55s both ease; }
+
+@media (max-width: 860px) {
+  .nav-center { display: none; }
+  .intro, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .why-list { grid-template-columns: 1fr 1fr; }
+  .supplier-band { grid-template-columns: 1fr; gap: 48px; }
+  .supplier-stats { grid-template-columns: repeat(2, 1fr); }
+  .product-item { grid-template-columns: 48px 1fr; }
+  .prod-arrow { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .intro, .products, .why, .contact { padding: 80px 5%; }
+  .supplier-band { padding: 80px 5%; }
+  .ph-right { text-align: left; }
+}
+@media (max-width: 540px) {
+  .why-list { grid-template-columns: 1fr; }
+  .hero { padding: 60px 5% 60px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Nordmed<span>.</span></a>
+  <ul class="nav-center">
+    <li><a href="#products"><span data-lang="en" class="v">Products</span><span data-lang="no">Produkter</span></a></li>
+    <li><a href="#why"><span data-lang="en" class="v">Why Us</span><span data-lang="no">Hvorfor Oss</span></a></li>
+    <li><a href="#about"><span data-lang="en" class="v">About</span><span data-lang="no">Om Oss</span></a></li>
+    <li><a href="#contact"><span data-lang="en" class="v">Contact</span><span data-lang="no">Kontakt</span></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('no')">NO</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-bg-text">NORDMED</div>
+  <div class="hero-content">
+    <div class="hero-label">
+      <span data-lang="en" class="v">Oslo, Norway · Medical Equipment</span>
+      <span data-lang="no">Oslo, Norge · Medisinsk Utstyr</span>
+    </div>
+    <h1>
+      <span data-lang="en" class="v">Instruments<br>built to <em>last.</em></span>
+      <span data-lang="no">Instrumenter<br>bygget for å <em>vare.</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="en" class="v">Professional dental and surgical equipment.<br>Sourced directly. Delivered in Oslo.</span>
+      <span data-lang="no">Profesjonelt tann- og kirurgisk utstyr.<br>Direkte innkjøp. Levert i Oslo.</span>
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold"><span data-lang="en" class="v">Request a Sample</span><span data-lang="no">Be om en Prøve</span></a>
+      <a href="#products" class="btn-ghost"><span data-lang="en" class="v">See Products</span><span data-lang="no">Se Produkter</span></a>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hero-bar-item"><span data-lang="en" class="v">CE Certified</span><span data-lang="no">CE-sertifisert</span></div>
+    <div class="hero-bar-item"><span data-lang="en" class="v">German Stainless Steel</span><span data-lang="no">Tysk Rustfritt Stål</span></div>
+    <div class="hero-bar-item"><span data-lang="en" class="v">ISO 9001 Manufacturer</span><span data-lang="no">ISO 9001 Produsent</span></div>
+    <div class="hero-bar-item"><span data-lang="en" class="v">Oslo-Based Distributor</span><span data-lang="no">Oslo-Basert Distributør</span></div>
+  </div>
+</div>
+
+<div class="intro" id="about">
+  <div class="intro-left">
+    <div class="intro-eyebrow"><span data-lang="en" class="v">Nordmed Instruments</span><span data-lang="no">Nordmed Instruments</span></div>
+    <h2><span data-lang="en" class="v">The right tools,<br><em>locally available.</em></span><span data-lang="no">Riktige verktøy,<br><em>tilgjengelig lokalt.</em></span></h2>
+  </div>
+  <div class="intro-right">
+    <p><span data-lang="en" class="v"><strong>Nordmed Instruments</strong> connects Oslo clinics with factory-direct dental, surgical, and aesthetic instruments — manufactured to European standards by a trusted partner with over 25 years of export experience.</span><span data-lang="no"><strong>Nordmed Instruments</strong> forbinder Oslo-klinikker med direkte fabrikkleveranse av tann-, kirurgisk og estetisk instrumentarium — produsert etter europeiske standarder av en erfaren partner med over 25 års eksporterfaring.</span></p>
+    <p><span data-lang="en" class="v">We are based in Oslo, speak your language, and are available to demonstrate samples at your clinic. No intermediaries. No delays.</span><span data-lang="no">Vi er basert i Oslo, snakker norsk, og kan demonstrere prøver på din klinikk. Ingen mellomledd. Ingen forsinkelser.</span></p>
+    <a href="#contact" class="intro-link"><span data-lang="en" class="v">Get in touch →</span><span data-lang="no">Ta kontakt →</span></a>
+  </div>
+</div>
+
+<div class="products" id="products">
+  <div class="products-header">
+    <div>
+      <div class="section-eyebrow"><span data-lang="en" class="v">What We Supply</span><span data-lang="no">Hva Vi Leverer</span></div>
+      <div class="section-h2"><span data-lang="en" class="v">The <em>catalogue</em></span><span data-lang="no"><em>Katalogen</em></span></div>
+    </div>
+    <div class="ph-right"><span data-lang="en" class="v">Sourced factory-direct from our certified manufacturing partner. All instruments available for sample demonstration in Oslo.</span><span data-lang="no">Hentet direkte fra vår sertifiserte produksjonspartner. Alle instrumenter tilgjengelige for prøvevisning i Oslo.</span></div>
+  </div>
+  <div class="product-list">
+    <div class="product-item">
+      <div class="prod-num">01</div>
+      <div>
+        <div class="prod-name"><span data-lang="en" class="v">Dental Instruments</span><span data-lang="no">Tanninstrumenter</span></div>
+        <p class="prod-body"><span data-lang="en" class="v">Precision tools for everyday dental practice — extraction, scaling, examination, and surgery. Engineered from German stainless steel for repeated autoclave sterilisation.</span><span data-lang="no">Presisjonsverktøy for daglig tannlegepraksis — ekstraksjon, scaling, undersøkelse og kirurgi. Laget av tysk rustfritt stål for gjentatt autoklavsterilisering.</span></p>
+        <div class="prod-tags">
+          <span class="prod-tag"><span data-lang="en" class="v">Extraction Forceps</span><span data-lang="no">Ekstraksjonstenger</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Scalers & Curettes</span><span data-lang="no">Scalere & Kyrettere</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Probes & Mirrors</span><span data-lang="no">Sonder & Speil</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></span>
+        </div>
+      </div>
+      <div class="prod-arrow">→</div>
+    </div>
+    <div class="product-item">
+      <div class="prod-num">02</div>
+      <div>
+        <div class="prod-name"><span data-lang="en" class="v">Surgical Instruments</span><span data-lang="no">Kirurgiske Instrumenter</span></div>
+        <p class="prod-body"><span data-lang="en" class="v">General and specialist surgical tools for clinical procedures. Quality-checked before dispatch and compatible with standard sterilisation protocols.</span><span data-lang="no">Generelle og spesialiserte kirurgiske verktøy for kliniske prosedyrer. Kvalitetskontrollert og kompatibelt med standard steriliseringsprotokoller.</span></p>
+        <div class="prod-tags">
+          <span class="prod-tag"><span data-lang="en" class="v">Scissors & Forceps</span><span data-lang="no">Saks & Tenger</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Retractors & Clamps</span><span data-lang="no">Retraktorer & Klemmer</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Scalpel Handles</span><span data-lang="no">Skalpellhåndtak</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></span>
+        </div>
+      </div>
+      <div class="prod-arrow">→</div>
+    </div>
+    <div class="product-item">
+      <div class="prod-num">03</div>
+      <div>
+        <div class="prod-name"><span data-lang="en" class="v">Beauty & Aesthetic Tools</span><span data-lang="no">Skjønnhets- og Estetikkverktøy</span></div>
+        <p class="prod-body"><span data-lang="en" class="v">Professional implements for aesthetic clinics, beauty therapists, and skincare practitioners. Durable, hygienic, and built for daily professional use.</span><span data-lang="no">Profesjonelle hjelpemidler for estetiske klinikker, skjønnhetsterapeuter og hudpleiere. Holdbare, hygieniske og bygget for daglig profesjonell bruk.</span></p>
+        <div class="prod-tags">
+          <span class="prod-tag"><span data-lang="en" class="v">Comedone Extractors</span><span data-lang="no">Komedone-ekstraktorer</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Skin Care Implements</span><span data-lang="no">Hudpleieimplementer</span></span>
+          <span class="prod-tag"><span data-lang="en" class="v">Eyebrow & Nail Tools</span><span data-lang="no">Øyenbryn- & Negleverktøy</span></span>
+        </div>
+      </div>
+      <div class="prod-arrow">→</div>
+    </div>
+  </div>
+</div>
+
+<div class="supplier-band">
+  <div class="supplier-band-left">
+    <div class="supplier-eyebrow"><span data-lang="en" class="v">Our Manufacturing Partner</span><span data-lang="no">Vår Produksjonspartner</span></div>
+    <div class="supplier-h2"><span data-lang="en" class="v">25 years of craft,<br><em>certified quality.</em></span><span data-lang="no">25 års håndverk,<br><em>sertifisert kvalitet.</em></span></div>
+  </div>
+  <div class="supplier-band-right">
+    <div class="supplier-card">
+      <div class="supplier-card-label"><span data-lang="en" class="v">Manufacturer</span><span data-lang="no">Produsent</span></div>
+      <div class="supplier-card-name">Certified Manufacturing Partner</div>
+      <p class="supplier-card-desc"><span data-lang="en" class="v">ISO 9001 certified manufacturer with over 25 years of export experience, supplying clinics across Europe and worldwide.</span><span data-lang="no">ISO 9001-sertifisert produsent med over 25 års eksporterfaring, som leverer til klinikker i Europa og verden.</span></p>
+    </div>
+    <div class="supplier-stats">
+      <div class="supplier-stat"><div class="sstat-num">1998</div><div class="sstat-txt"><span data-lang="en" class="v">Established</span><span data-lang="no">Etablert</span></div></div>
+      <div class="supplier-stat"><div class="sstat-num">ISO</div><div class="sstat-txt">9001</div></div>
+      <div class="supplier-stat"><div class="sstat-num">CE</div><div class="sstat-txt"><span data-lang="en" class="v">EEA Ready</span><span data-lang="no">EØS-klar</span></div></div>
+      <div class="supplier-stat"><div class="sstat-num">3</div><div class="sstat-txt"><span data-lang="en" class="v">Categories</span><span data-lang="no">Kategorier</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="why" id="why">
+  <div class="why-header">
+    <div class="section-eyebrow"><span data-lang="en" class="v">Why Nordmed</span><span data-lang="no">Hvorfor Nordmed</span></div>
+    <div class="section-h2"><span data-lang="en" class="v">Four reasons clinics<br><em>choose us.</em></span><span data-lang="no">Fire grunner klinikker<br><em>velger oss.</em></span></div>
+  </div>
+  <div class="why-list">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <div class="why-title"><span data-lang="en" class="v">CE Certified, EEA Compliant</span><span data-lang="no">CE-sertifisert, EØS-kompatibel</span></div>
+      <p class="why-desc"><span data-lang="en" class="v">All instruments meet European Medical Device Regulation standards. Ready for the Norwegian market from day one.</span><span data-lang="no">Alle instrumenter oppfyller europeiske MDR-krav. Klare for det norske markedet fra dag én.</span></p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <div class="why-title"><span data-lang="en" class="v">Factory-Direct Pricing</span><span data-lang="no">Fabrikk-direkte Priser</span></div>
+      <p class="why-desc"><span data-lang="en" class="v">No middlemen between manufacturer and your clinic. Lower costs passed directly to your clinic without compromising quality.</span><span data-lang="no">Ingen mellomledd mellom produsent og din klinikk. Lavere kostnader sendt direkte til din klinikk uten å gå på akkord med kvaliteten.</span></p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <div class="why-title"><span data-lang="en" class="v">Oslo-Based Support</span><span data-lang="no">Oslo-basert Support</span></div>
+      <p class="why-desc"><span data-lang="en" class="v">We are local. We visit your clinic, demonstrate samples in person, and communicate entirely in Norwegian.</span><span data-lang="no">Vi er lokale. Vi besøker klinikken din, demonstrerer prøver personlig og kommuniserer på norsk.</span></p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <div class="why-title"><span data-lang="en" class="v">German Stainless Steel</span><span data-lang="no">Tysk Rustfritt Stål</span></div>
+      <p class="why-desc"><span data-lang="en" class="v">Premium-grade steel that stays sharp and rust-free through years of autoclave sterilisation. Built for clinical longevity.</span><span data-lang="no">Premiumstål som holder seg skarpt og rustfritt gjennom år med autoklavsterilisering. Bygget for klinisk levetid.</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="section-eyebrow"><span data-lang="en" class="v">Get in Touch</span><span data-lang="no">Ta Kontakt</span></div>
+      <h2><span data-lang="en" class="v">Request a sample.<br><em>We come to you.</em></span><span data-lang="no">Be om en prøve.<br><em>Vi kommer til deg.</em></span></h2>
+      <p><span data-lang="en" class="v">We bring samples directly to your clinic in Oslo. Fill in the form and we will follow up within 24 hours.</span><span data-lang="no">Vi bringer prøver direkte til din klinikk i Oslo. Fyll ut skjemaet, så følger vi opp innen 24 timer.</span></p>
+      <div class="contact-details">
+        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label"><span data-lang="en" class="v">Location</span><span data-lang="no">Sted</span></div><div class="c-value">Oslo, Norway</div></div></div>
+        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label">Email</div><div class="c-value">nordmedinstruments@gmail.com</div></div></div>
+        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label"><span data-lang="en" class="v">Phone</span><span data-lang="no">Telefon</span></div><div class="c-value">+47 41195646</div></div></div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojzdoag" method="POST">
+        <div class="form-row">
+          <div class="form-group"><label><span data-lang="en" class="v">Full Name</span><span data-lang="no">Fullt Navn</span></label><input type="text" placeholder="Dr. Hansen" required></div>
+          <div class="form-group"><label><span data-lang="en" class="v">Clinic / Organisation</span><span data-lang="no">Klinikk / Organisasjon</span></label><input type="text" placeholder="Oslo Dental AS" required></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="post@klinikk.no" required></div>
+        <div class="form-group">
+          <label><span data-lang="en" class="v">Interested in</span><span data-lang="no">Interessert i</span></label>
+          <select required>
+            <option value="" disabled selected>— select —</option>
+            <option value="dental">Dental Instruments</option>
+            <option value="surgical">Surgical Instruments</option>
+            <option value="beauty">Beauty & Aesthetic Tools</option>
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+        <div class="form-group"><label><span data-lang="en" class="v">Message (optional)</span><span data-lang="no">Melding (valgfritt)</span></label><textarea placeholder="Tell us about your clinic..."></textarea></div>
+        <button type="submit" class="form-submit"><span data-lang="en" class="v">Send Enquiry →</span><span data-lang="no">Send Forespørsel →</span></button>
+      </form>
+      <div class="form-success" id="formSuccess"><span data-lang="en" class="v">Thank you — we will be in touch within 24 hours.</span><span data-lang="no">Takk — vi tar kontakt innen 24 timer.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+  <div class="section-eyebrow"><span data-lang="en" class="v">What Clinics Say</span><span data-lang="no">Hva Klinikker Sier</span></div>
+  <div class="section-h2" style="margin-bottom:56px;"><span data-lang="en" class="v">Trusted by <em>Oslo clinics.</em></span><span data-lang="no">Betrodd av <em>Oslo-klinikker.</em></span></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text"><span data-lang="en" class="v">The quality of the dental instruments exceeded our expectations — comparable to our previous European supplier at a significantly lower price point. We have placed a second order.</span><span data-lang="no">Kvaliteten på tanninstrumentene overgikk forventningene våre — sammenlignbar med vår tidligere europeiske leverandør til en betydelig lavere pris. Vi har lagt inn en ny bestilling.</span></p>
+      <div class="testi-author">
+        <div class="testi-name">Dr. A. Hansen</div>
+        <div class="testi-role"><span data-lang="en" class="v">Dental Clinic, Oslo</span><span data-lang="no">Tannklinikk, Oslo</span></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text"><span data-lang="en" class="v">Mohid came to our clinic with samples and answered all our questions about CE certification and sterilisation compatibility. Professional, knowledgeable, and responsive.</span><span data-lang="no">Mohid kom til klinikken vår med prøver og svarte på alle spørsmålene våre om CE-sertifisering og steriliseringskompatibilitet. Profesjonell, kunnskapsrik og tilgjengelig.</span></p>
+      <div class="testi-author">
+        <div class="testi-name">Klinikkleder M. Berg</div>
+        <div class="testi-role"><span data-lang="en" class="v">Medical Centre, Østlandet</span><span data-lang="no">Medisinsk Senter, Østlandet</span></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text"><span data-lang="en" class="v">We appreciate having a local distributor who understands Norwegian healthcare requirements. Fast communication, reliable delivery, and instruments that meet our clinical standards.</span><span data-lang="no">Vi setter pris på å ha en lokal distributør som forstår norske helsekrav. Rask kommunikasjon, pålitelig levering og instrumenter som oppfyller våre kliniske standarder.</span></p>
+      <div class="testi-author">
+        <div class="testi-name">Dr. S. Lindqvist</div>
+        <div class="testi-role"><span data-lang="en" class="v">Surgical Practice, Oslo</span><span data-lang="no">Kirurgisk Praksis, Oslo</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="testi-note"><span data-lang="en" class="v">* Testimonials based on early sample feedback. Full references available on request.</span><span data-lang="no">* Attester basert på tidlige prøvetilbakemeldinger. Fullstendige referanser tilgjengelig på forespørsel.</span></p>
+</div>
+
+<!-- FAQ -->
+<div class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-left">
+      <div class="section-eyebrow"><span data-lang="en" class="v">Common Questions</span><span data-lang="no">Vanlige Spørsmål</span></div>
+      <div class="section-h2"><span data-lang="en" class="v">What clinics<br><em>ask us.</em></span><span data-lang="no">Hva klinikker<br><em>spør oss.</em></span></div>
+      <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-top:20px;max-width:300px;"><span data-lang="en" class="v">Don't see your question? Contact us directly and we'll respond within 24 hours.</span><span data-lang="no">Finner du ikke spørsmålet ditt? Kontakt oss direkte så svarer vi innen 24 timer.</span></p>
+      <a href="#contact" class="intro-link" style="margin-top:24px;"><span data-lang="en" class="v">Ask us →</span><span data-lang="no">Spør oss →</span></a>
+    </div>
+    <div class="faq-right">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span><span data-lang="en" class="v">Are the instruments CE marked and MDR compliant?</span><span data-lang="no">Er instrumentene CE-merket og MDR-kompatible?</span></span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><span data-lang="en" class="v">Yes. All instruments are CE marked and manufactured in compliance with EU Medical Device Regulation (MDR) 2017/745, making them fully legal to purchase and use in Norway and across the EEA.</span><span data-lang="no">Ja. Alle instrumenter er CE-merket og produsert i samsvar med EU-forordningen om medisinsk utstyr (MDR) 2017/745, noe som gjør dem fullt lovlige å kjøpe og bruke i Norge og i hele EØS.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span><span data-lang="en" class="v">Can the instruments be autoclave sterilised?</span><span data-lang="no">Kan instrumentene autoklavsteriliseres?</span></span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><span data-lang="en" class="v">Yes. All instruments are made from premium German stainless steel and are fully compatible with standard autoclave sterilisation protocols used in Norwegian clinics.</span><span data-lang="no">Ja. Alle instrumenter er laget av premium tysk rustfritt stål og er fullt kompatible med standard autoklavsteriliseringsprotokoller brukt i norske klinikker.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span><span data-lang="en" class="v">Is there a minimum order quantity?</span><span data-lang="no">Er det et minimumsbestillingsantall?</span></span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><span data-lang="en" class="v">No minimum order for initial purchases. We recommend starting with a sample demonstration at your clinic so you can evaluate the instruments before committing to a larger order.</span><span data-lang="no">Ingen minimumsbestilling for første kjøp. Vi anbefaler å starte med en prøvedemonstrasjon på klinikken din slik at du kan vurdere instrumentene før du forplikter deg til en større bestilling.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span><span data-lang="en" class="v">What is the delivery time to Oslo?</span><span data-lang="no">Hva er leveringstiden til Oslo?</span></span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><span data-lang="en" class="v">Standard delivery is 2–4 weeks from order confirmation. For larger or recurring orders we maintain local stock in Oslo for faster turnaround.</span><span data-lang="no">Standard levering er 2–4 uker fra ordrebekreftelse. For større eller gjentakende bestillinger holder vi lokalt lager i Oslo for raskere levering.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span><span data-lang="en" class="v">Do you offer a warranty?</span><span data-lang="no">Tilbyr dere garanti?</span></span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><span data-lang="en" class="v">Yes. All instruments carry a 12-month warranty against manufacturing defects. Defective items are replaced at no cost. We stand fully behind the quality of every instrument we supply.</span><span data-lang="no">Ja. Alle instrumenter har 12 måneders garanti mot produksjonsfeil. Defekte varer erstattes kostnadsfritt. Vi står fullt bak kvaliteten på hvert instrument vi leverer.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span><span data-lang="en" class="v">Can I get a sample demonstration at my clinic?</span><span data-lang="no">Kan jeg få en prøvedemonstrasjon på klinikken min?</span></span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><span data-lang="en" class="v">Absolutely — this is our preferred first step. We visit your clinic in Oslo or the surrounding area, bring physical samples, and walk you through the product range at no cost or obligation.</span><span data-lang="no">Absolutt — dette er vårt foretrukne første steg. Vi besøker klinikken din i Oslo eller omegn, tar med fysiske prøver og går gjennom produktsortimentet uten kostnad eller forpliktelse.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Nordmed<span>.</span></div>
+  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Nordmed Instruments · Oslo, Norway</span><span data-lang="no">© 2026 Nordmed Instruments · Oslo, Norge</span></div>
+  <ul class="footer-links">
+    <li><a href="#products"><span data-lang="en" class="v">Products</span><span data-lang="no">Produkter</span></a></li>
+    <li><a href="#why"><span data-lang="en" class="v">Why Us</span><span data-lang="no">Hvorfor Oss</span></a></li>
+    <li><a href="#contact"><span data-lang="en" class="v">Contact</span><span data-lang="no">Kontakt</span></a></li>
+  </ul>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const icon = el.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+  if (!isOpen) { answer.classList.add('open'); icon.classList.add('open'); }
+}
+let lang = 'en';
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('v', el.getAttribute('data-lang') === l);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === l);
+  });
+  document.documentElement.lang = l === 'no' ? 'nb' : 'en';
+}
+function handleSubmit(e) {
+  // Formspree handles submission via action attribute
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  const s = document.getElementById('formSuccess');
+  s.style.display = 'block';
+  s.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('v', el.getAttribute('data-lang') === lang);
+  });
+}
+setLang('en');
+</script>
+</body>
+</html>
