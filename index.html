@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nordmed Instruments — Professional Medical Equipment, Oslo</title>
-<meta name="description" content="Oslo-based distributor of professional dental and surgical instruments. CE-certified, factory-direct from ISO 9001 certified manufacturers.">
+<meta name="description" content="Oslo-based distributor of CE-certified dental and surgical instruments. Factory-direct pricing, local Oslo support, ISO 9001 certified manufacturer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@ html { scroll-behavior: smooth; }
   --offwhite: #f7f5f1; --white: #ffffff;
   --ink: #0b1d35; --muted: #6b7280;
   --border: rgba(11,29,53,0.1); --border-light: rgba(11,29,53,0.06);
+  --teal: #0d8a7a;
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
@@ -57,29 +58,59 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; h
 .intro-link { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; display: inline-block; margin-top: 8px; transition: color 0.2s; }
 .intro-link:hover { color: var(--gold); }
 
+/* PRODUCTS - NEW CATALOGUE STYLE */
 .products { background: var(--offwhite); padding: 120px 6%; }
-.products-header { margin-bottom: 64px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; }
 .section-eyebrow { font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 50px); font-weight: 400; line-height: 1.1; color: var(--navy); }
 .section-h2 em { font-style: italic; color: var(--gold); }
+.products-header { margin-bottom: 64px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; }
 .ph-right { font-size: 13px; font-weight: 300; color: var(--muted); max-width: 320px; line-height: 1.7; text-align: right; }
-.product-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
-.product-item { display: grid; grid-template-columns: 64px 1fr auto; align-items: start; padding: 48px 0; border-bottom: 1px solid var(--border); gap: 40px; position: relative; }
-.product-item::before { content: ''; position: absolute; left: -6%; right: -6%; top: 0; bottom: 0; background: var(--navy); opacity: 0; transition: opacity 0.3s; z-index: 0; }
-.product-item:hover::before { opacity: 1; }
-.product-item:hover .prod-num { color: rgba(255,255,255,0.08); }
-.product-item:hover .prod-name { color: white; }
-.product-item:hover .prod-body { color: rgba(255,255,255,0.45); }
-.product-item:hover .prod-tag { border-color: rgba(184,147,90,0.4); color: rgba(184,147,90,0.8); }
-.product-item:hover .prod-arrow { opacity: 1; color: var(--gold); }
-.product-item > * { position: relative; z-index: 1; }
-.prod-num { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 400; color: rgba(11,29,53,0.25); letter-spacing: 0.08em; padding-top: 6px; transition: color 0.3s; }
-.prod-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--navy); margin-bottom: 14px; line-height: 1.1; letter-spacing: -0.01em; transition: color 0.3s; }
-.prod-body { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 20px; transition: color 0.3s; }
-.prod-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.prod-tag { font-size: 11px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,147,90,0.35); padding: 4px 12px; transition: all 0.3s; }
-.prod-arrow { font-size: 22px; color: var(--gold); opacity: 0; transition: opacity 0.3s; padding-top: 4px; align-self: center; }
 
+/* Category tabs */
+.cat-tabs { display: flex; gap: 2px; margin-bottom: 48px; flex-wrap: wrap; }
+.cat-tab { padding: 10px 24px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; background: rgba(11,29,53,0.06); color: var(--muted); }
+.cat-tab.active { background: var(--navy); color: white; }
+.cat-tab:hover:not(.active) { background: rgba(11,29,53,0.12); color: var(--navy); }
+
+/* Product grid */
+.prod-category { display: none; }
+.prod-category.active { display: block; }
+.prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+.prod-card { background: var(--white); overflow: hidden; transition: transform 0.3s; position: relative; }
+.prod-card:hover { z-index: 2; transform: scale(1.02); box-shadow: 0 20px 60px rgba(11,29,53,0.15); }
+.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; padding: 24px; border-bottom: 1px solid var(--border-light); }
+.prod-img-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f7 0%, #d0dff0 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-light); }
+.prod-img-placeholder svg { width: 64px; height: 64px; stroke: rgba(11,29,53,0.2); fill: none; stroke-width: 1; }
+.prod-body { padding: 24px 28px 28px; }
+.prod-code { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.prod-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
+.prod-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+.prod-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.prod-spec { font-size: 11px; letter-spacing: 0.06em; color: var(--navy); background: var(--offwhite); padding: 3px 10px; border: 1px solid var(--border); }
+.prod-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.prod-badge { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border: 1px solid; }
+.prod-badge.ce { color: #1a7a4a; border-color: rgba(26,122,74,0.3); background: rgba(26,122,74,0.05); }
+.prod-badge.steel { color: var(--navy); border-color: var(--border); background: var(--offwhite); }
+.prod-badge.iso { color: #0070b8; border-color: rgba(0,112,184,0.3); background: rgba(0,112,184,0.05); }
+.prod-enquire { display: block; margin-top: 18px; text-align: center; background: var(--navy); color: white; padding: 10px; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+.prod-enquire:hover { background: var(--navy-soft); }
+
+/* Category banner */
+.cat-banner { background: var(--navy); padding: 20px 28px; margin-bottom: 2px; display: flex; align-items: center; gap: 16px; }
+.cat-banner-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: white; }
+.cat-banner-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); margin-left: auto; max-width: 400px; text-align: right; }
+
+/* Why section */
+.why { background: var(--white); padding: 120px 6%; border-bottom: 1px solid var(--border-light); }
+.why-header { margin-bottom: 72px; }
+.why-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+.why-item { background: var(--white); padding: 48px 36px; border-left: 3px solid transparent; transition: border-color 0.3s; }
+.why-item:hover { border-left-color: var(--gold); }
+.why-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: rgba(11,29,53,0.07); line-height: 1; margin-bottom: 28px; }
+.why-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+.why-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+/* Supplier band */
 .supplier-band { background: var(--navy); padding: 80px 6%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; overflow: hidden; }
 .supplier-band::before { content: 'QUALITY'; position: absolute; right: 3%; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: clamp(80px, 12vw, 160px); font-weight: 400; color: rgba(255,255,255,0.028); pointer-events: none; user-select: none; letter-spacing: -0.02em; }
 .supplier-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
@@ -96,15 +127,32 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; h
 .supplier-band-left { position: relative; z-index: 2; }
 .supplier-band-right { position: relative; z-index: 2; }
 
-.why { background: var(--white); padding: 120px 6%; border-bottom: 1px solid var(--border-light); }
-.why-header { margin-bottom: 72px; }
-.why-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-.why-item { background: var(--white); padding: 48px 36px; border-left: 3px solid transparent; transition: border-color 0.3s; }
-.why-item:hover { border-left-color: var(--gold); }
-.why-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: rgba(11,29,53,0.07); line-height: 1; margin-bottom: 28px; }
-.why-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
-.why-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+/* Testimonials */
+.testimonials { background: var(--navy); padding: 120px 6%; }
+.testimonials .section-eyebrow { color: var(--gold); margin-bottom: 16px; font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; }
+.testimonials .section-h2 { color: white; margin-bottom: 56px; }
+.testimonials .section-h2 em { color: var(--gold-light); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); margin-bottom: 24px; }
+.testi-card { background: rgba(255,255,255,0.03); padding: 44px 36px; }
+.testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 400; color: var(--gold); opacity: 0.3; line-height: 0.8; margin-bottom: 20px; }
+.testi-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+.testi-name { font-size: 14px; font-weight: 500; color: white; margin-bottom: 4px; }
+.testi-role { font-size: 12px; color: var(--gold); letter-spacing: 0.06em; }
+.testi-note { font-size: 11px; color: rgba(255,255,255,0.2); font-style: italic; }
 
+/* FAQ */
+.faq { background: var(--white); padding: 120px 6%; border-bottom: 1px solid var(--border-light); }
+.faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 100px; align-items: start; }
+.faq-right { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; font-size: 15px; font-weight: 400; color: var(--navy); gap: 20px; transition: color 0.2s; user-select: none; }
+.faq-q:hover { color: var(--gold); }
+.faq-icon { font-size: 22px; font-weight: 300; color: var(--gold); flex-shrink: 0; line-height: 1; transition: transform 0.2s; }
+.faq-icon.open { transform: rotate(45deg); }
+.faq-a { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+.faq-a.open { max-height: 200px; padding-bottom: 22px; }
+
+/* Contact */
 .contact { background: var(--offwhite); padding: 120px 6%; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
 .contact-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 50px); font-weight: 400; color: var(--navy); line-height: 1.1; margin-bottom: 24px; }
@@ -135,29 +183,6 @@ footer { background: var(--navy); padding: 40px 6%; display: flex; justify-conte
 .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--gold); }
 
-.testimonials { background: var(--navy); padding: 120px 6%; }
-.testimonials .section-eyebrow { color: var(--gold); margin-bottom: 16px; font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; }
-.testimonials .section-h2 { color: white; }
-.testimonials .section-h2 em { color: var(--gold-light); }
-.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); margin-bottom: 24px; }
-.testi-card { background: rgba(255,255,255,0.03); padding: 44px 36px; }
-.testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 400; color: var(--gold); opacity: 0.3; line-height: 0.8; margin-bottom: 20px; }
-.testi-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
-.testi-name { font-size: 14px; font-weight: 500; color: white; margin-bottom: 4px; }
-.testi-role { font-size: 12px; color: var(--gold); letter-spacing: 0.06em; }
-.testi-note { font-size: 11px; color: rgba(255,255,255,0.2); font-style: italic; }
-.faq { background: var(--white); padding: 120px 6%; border-bottom: 1px solid var(--border-light); }
-.faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 100px; align-items: start; }
-.faq-right { display: flex; flex-direction: column; }
-.faq-item { border-bottom: 1px solid var(--border); }
-.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; font-size: 15px; font-weight: 400; color: var(--navy); gap: 20px; transition: color 0.2s; user-select: none; }
-.faq-q:hover { color: var(--gold); }
-.faq-icon { font-size: 22px; font-weight: 300; color: var(--gold); flex-shrink: 0; line-height: 1; transition: transform 0.2s; }
-.faq-icon.open { transform: rotate(45deg); }
-.faq-a { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
-.faq-a.open { max-height: 200px; padding-bottom: 22px; }
-@media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } .faq-inner { grid-template-columns: 1fr; gap: 48px; } }
-
 [data-lang] { display: none; }
 [data-lang].v { display: block; }
 span[data-lang].v { display: inline; }
@@ -169,22 +194,22 @@ span[data-lang].v { display: inline; }
 .hero-actions { animation: fadeUp 0.6s 0.45s both ease; }
 .hero-bar { animation: fadeUp 0.6s 0.55s both ease; }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .nav-center { display: none; }
-  .intro, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .intro, .contact-grid, .supplier-band { grid-template-columns: 1fr; gap: 48px; }
   .why-list { grid-template-columns: 1fr 1fr; }
-  .supplier-band { grid-template-columns: 1fr; gap: 48px; }
+  .prod-grid { grid-template-columns: 1fr 1fr; }
   .supplier-stats { grid-template-columns: repeat(2, 1fr); }
-  .product-item { grid-template-columns: 48px 1fr; }
-  .prod-arrow { display: none; }
+  .faq-inner { grid-template-columns: 1fr; gap: 48px; }
   .form-row { grid-template-columns: 1fr; }
-  .intro, .products, .why, .contact { padding: 80px 5%; }
+  .intro, .products, .why, .contact, .faq, .testimonials { padding: 80px 5%; }
   .supplier-band { padding: 80px 5%; }
   .ph-right { text-align: left; }
+  .testi-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 540px) {
-  .why-list { grid-template-columns: 1fr; }
-  .hero { padding: 60px 5% 60px; }
+  .why-list, .prod-grid { grid-template-columns: 1fr; }
+  .cat-tabs { flex-direction: column; }
 }
 </style>
 </head>
@@ -208,27 +233,19 @@ span[data-lang].v { display: inline; }
   <div class="hero-grid"></div>
   <div class="hero-bg-text">NORDMED</div>
   <div class="hero-content">
-    <div class="hero-label">
-      <span data-lang="en" class="v">Oslo, Norway · Medical Equipment</span>
-      <span data-lang="no">Oslo, Norge · Medisinsk Utstyr</span>
-    </div>
-    <h1>
-      <span data-lang="en" class="v">Instruments<br>built to <em>last.</em></span>
-      <span data-lang="no">Instrumenter<br>bygget for å <em>vare.</em></span>
-    </h1>
-    <p class="hero-sub">
-      <span data-lang="en" class="v">Professional dental and surgical equipment.<br>Sourced directly. Delivered in Oslo.</span>
-      <span data-lang="no">Profesjonelt tann- og kirurgisk utstyr.<br>Direkte innkjøp. Levert i Oslo.</span>
-    </p>
+    <div class="hero-label"><span data-lang="en" class="v">Oslo, Norway · CE Certified Medical Equipment</span><span data-lang="no">Oslo, Norge · CE-sertifisert Medisinsk Utstyr</span></div>
+    <h1><span data-lang="en" class="v">Instruments<br>built to <em>last.</em></span><span data-lang="no">Instrumenter<br>bygget for å <em>vare.</em></span></h1>
+    <p class="hero-sub"><span data-lang="en" class="v">Professional dental and surgical instruments.<br>Factory-direct pricing. Oslo-based support.</span><span data-lang="no">Profesjonelt tann- og kirurgisk instrumentarium.<br>Fabrikk-direkte priser. Oslo-basert støtte.</span></p>
     <div class="hero-actions">
       <a href="#contact" class="btn-gold"><span data-lang="en" class="v">Request a Sample</span><span data-lang="no">Be om en Prøve</span></a>
       <a href="#products" class="btn-ghost"><span data-lang="en" class="v">See Products</span><span data-lang="no">Se Produkter</span></a>
     </div>
   </div>
   <div class="hero-bar">
-    <div class="hero-bar-item"><span data-lang="en" class="v">CE Certified</span><span data-lang="no">CE-sertifisert</span></div>
+    <div class="hero-bar-item"><span data-lang="en" class="v">CE Marked</span><span data-lang="no">CE-merket</span></div>
+    <div class="hero-bar-item"><span data-lang="en" class="v">ISO 9001:2015 & ISO 13485:2016</span><span data-lang="no">ISO 9001:2015 & ISO 13485:2016</span></div>
     <div class="hero-bar-item"><span data-lang="en" class="v">German Stainless Steel</span><span data-lang="no">Tysk Rustfritt Stål</span></div>
-    <div class="hero-bar-item"><span data-lang="en" class="v">ISO 9001 Manufacturer</span><span data-lang="no">ISO 9001 Produsent</span></div>
+    <div class="hero-bar-item"><span data-lang="en" class="v">GMP Certified Manufacturer</span><span data-lang="no">GMP-sertifisert Produsent</span></div>
     <div class="hero-bar-item"><span data-lang="en" class="v">Oslo-Based Distributor</span><span data-lang="no">Oslo-Basert Distributør</span></div>
   </div>
 </div>
@@ -239,85 +256,302 @@ span[data-lang].v { display: inline; }
     <h2><span data-lang="en" class="v">The right tools,<br><em>locally available.</em></span><span data-lang="no">Riktige verktøy,<br><em>tilgjengelig lokalt.</em></span></h2>
   </div>
   <div class="intro-right">
-    <p><span data-lang="en" class="v"><strong>Nordmed Instruments</strong> connects Oslo clinics with factory-direct dental, surgical, and aesthetic instruments — manufactured to European standards by a trusted partner with over 25 years of export experience.</span><span data-lang="no"><strong>Nordmed Instruments</strong> forbinder Oslo-klinikker med direkte fabrikkleveranse av tann-, kirurgisk og estetisk instrumentarium — produsert etter europeiske standarder av en erfaren partner med over 25 års eksporterfaring.</span></p>
-    <p><span data-lang="en" class="v">We are based in Oslo, speak your language, and are available to demonstrate samples at your clinic. No intermediaries. No delays.</span><span data-lang="no">Vi er basert i Oslo, snakker norsk, og kan demonstrere prøver på din klinikk. Ingen mellomledd. Ingen forsinkelser.</span></p>
-    <a href="#contact" class="intro-link"><span data-lang="en" class="v">Get in touch →</span><span data-lang="no">Ta kontakt →</span></a>
+    <p><span data-lang="en" class="v"><strong>Nordmed Instruments</strong> supplies Norwegian dental and surgical clinics with professional-grade instruments — sourced factory-direct from an ISO 9001:2015 and ISO 13485:2016 certified manufacturer with over 25 years of export experience across Europe.</span><span data-lang="no"><strong>Nordmed Instruments</strong> leverer profesjonelt instrumentarium til norske tann- og kirurgiske klinikker — hentet direkte fra fabrikk fra en ISO 9001:2015 og ISO 13485:2016-sertifisert produsent med over 25 års eksporterfaring i Europa.</span></p>
+    <p><span data-lang="en" class="v">We are based in Oslo. We speak your language. We bring samples directly to your clinic — no obligation, no waiting. Every instrument is CE marked and autoclave-compatible.</span><span data-lang="no">Vi er basert i Oslo. Vi snakker norsk. Vi bringer prøver direkte til din klinikk — ingen forpliktelse, ingen ventetid. Hvert instrument er CE-merket og autoklavkompatibelt.</span></p>
+    <a href="#contact" class="intro-link"><span data-lang="en" class="v">Book a sample visit →</span><span data-lang="no">Book et prøvebesøk →</span></a>
   </div>
 </div>
 
+<!-- PRODUCTS -->
 <div class="products" id="products">
   <div class="products-header">
     <div>
-      <div class="section-eyebrow"><span data-lang="en" class="v">What We Supply</span><span data-lang="no">Hva Vi Leverer</span></div>
-      <div class="section-h2"><span data-lang="en" class="v">The <em>catalogue</em></span><span data-lang="no"><em>Katalogen</em></span></div>
+      <div class="section-eyebrow"><span data-lang="en" class="v">Our Product Range</span><span data-lang="no">Vårt Produktsortiment</span></div>
+      <div class="section-h2"><span data-lang="en" class="v">Clinical <em>instruments</em></span><span data-lang="no">Kliniske <em>instrumenter</em></span></div>
     </div>
-    <div class="ph-right"><span data-lang="en" class="v">Sourced factory-direct from our certified manufacturing partner. All instruments available for sample demonstration in Oslo.</span><span data-lang="no">Hentet direkte fra vår sertifiserte produksjonspartner. Alle instrumenter tilgjengelige for prøvevisning i Oslo.</span></div>
+    <div class="ph-right"><span data-lang="en" class="v">All instruments CE marked, ISO certified, and available for sample demonstration in Oslo. Contact us for pricing.</span><span data-lang="no">Alle instrumenter CE-merket, ISO-sertifisert og tilgjengelig for prøvedemonstrasjon i Oslo. Kontakt oss for priser.</span></div>
   </div>
-  <div class="product-list">
-    <div class="product-item">
-      <div class="prod-num">01</div>
-      <div>
-        <div class="prod-name"><span data-lang="en" class="v">Dental Instruments</span><span data-lang="no">Tanninstrumenter</span></div>
-        <p class="prod-body"><span data-lang="en" class="v">Precision tools for everyday dental practice — extraction, scaling, examination, and surgery. Engineered from German stainless steel for repeated autoclave sterilisation.</span><span data-lang="no">Presisjonsverktøy for daglig tannlegepraksis — ekstraksjon, scaling, undersøkelse og kirurgi. Laget av tysk rustfritt stål for gjentatt autoklavsterilisering.</span></p>
-        <div class="prod-tags">
-          <span class="prod-tag"><span data-lang="en" class="v">Extraction Forceps</span><span data-lang="no">Ekstraksjonstenger</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Scalers & Curettes</span><span data-lang="no">Scalere & Kyrettere</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Probes & Mirrors</span><span data-lang="no">Sonder & Speil</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></span>
-        </div>
-      </div>
-      <div class="prod-arrow">→</div>
+
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="showCat('scissors')"><span data-lang="en" class="v">Surgical Scissors</span><span data-lang="no">Kirurgisk Saks</span></button>
+    <button class="cat-tab" onclick="showCat('needle')"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></button>
+    <button class="cat-tab" onclick="showCat('forceps')"><span data-lang="en" class="v">Forceps & Clamps</span><span data-lang="no">Tenger & Klemmer</span></button>
+    <button class="cat-tab" onclick="showCat('micro')"><span data-lang="en" class="v">Micro Instruments</span><span data-lang="no">Mikroinstrumenter</span></button>
+  </div>
+
+  <!-- SCISSORS -->
+  <div class="prod-category active" id="cat-scissors">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Surgical Scissors</span><span data-lang="no">Kirurgisk Saks</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Standard, Supercut, TC and Titanium variants. Essential for tissue dissection, suture cutting, and oral surgery.</span><span data-lang="no">Standard, Supercut, TC og Titan-varianter. Uunnværlig for vevsdisseksjon, sutursklipp og oralkirurgi.</span></div>
     </div>
-    <div class="product-item">
-      <div class="prod-num">02</div>
-      <div>
-        <div class="prod-name"><span data-lang="en" class="v">Surgical Instruments</span><span data-lang="no">Kirurgiske Instrumenter</span></div>
-        <p class="prod-body"><span data-lang="en" class="v">General and specialist surgical tools for clinical procedures. Quality-checked before dispatch and compatible with standard sterilisation protocols.</span><span data-lang="no">Generelle og spesialiserte kirurgiske verktøy for kliniske prosedyrer. Kvalitetskontrollert og kompatibelt med standard steriliseringsprotokoller.</span></p>
-        <div class="prod-tags">
-          <span class="prod-tag"><span data-lang="en" class="v">Scissors & Forceps</span><span data-lang="no">Saks & Tenger</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Retractors & Clamps</span><span data-lang="no">Retraktorer & Klemmer</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Scalpel Handles</span><span data-lang="no">Skalpellhåndtak</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></span>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="80" y2="15" stroke-width="2"/><line x1="10" y1="55" x2="80" y2="20" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1020</div>
+          <div class="prod-name"><span data-lang="en" class="v">Goldman-Fox Scissor</span><span data-lang="no">Goldman-Fox Saks</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">The most widely used scissor in periodontal and oral surgery. Curved blades allow precise tissue cutting with full visibility. Standard choice in Norwegian dental clinics.</span><span data-lang="no">Den mest brukte saksen i periodontal og oralkirurgi. Buede blader gir presis vevsklipping med full sikt. Standardvalg i norske tannklinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">130mm</span><span class="prod-spec"><span data-lang="en" class="v">Curved</span><span data-lang="no">Buet</span></span><span class="prod-spec">Stainless Steel</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
         </div>
       </div>
-      <div class="prod-arrow">→</div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="85" y2="12" stroke-width="2"/><line x1="10" y1="55" x2="85" y2="17" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1025 / 1026</div>
+          <div class="prod-name"><span data-lang="en" class="v">Supercut Scissors — Gold Ring</span><span data-lang="no">Supercut Saks — Gullring</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Micro-serrated edge on one blade prevents tissue slippage. TC gold ring handles provide superior grip. Preferred by oral surgeons for flap procedures and suture work.</span><span data-lang="no">Mikrosagget kant på ett blad hindrer vevsgliding. TC-gullfargede håndtak gir overlegen grep. Foretrekkes av oralkirurger til flapoperasjoner og suturer.</span></p>
+          <div class="prod-specs"><span class="prod-spec">115–130mm</span><span class="prod-spec">Supercut</span><span class="prod-spec">TC Gold Ring</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="48" x2="90" y2="12" stroke-width="2"/><line x1="10" y1="54" x2="90" y2="18" stroke-width="2"/><circle cx="15" cy="43" r="8"/><circle cx="15" cy="57" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1017 / 1019</div>
+          <div class="prod-name"><span data-lang="en" class="v">Metzenbaum Scissor</span><span data-lang="no">Metzenbaum Saks</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Long-handled, short-bladed dissecting scissors for fine tissue work. Used in both dental surgery and general surgical clinics. Available in standard and TC Supercut versions.</span><span data-lang="no">Langskaftede, kortbladede disseksjonssaks for fint vevsarbeid. Brukes i både tannkirurgi og generelle kirurgiske klinikker. Tilgjengelig i standard og TC Supercut-versjoner.</span></p>
+          <div class="prod-specs"><span class="prod-spec">145–200mm</span><span class="prod-spec">Straight/Curved</span><span class="prod-spec">TC available</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="75" y2="20" stroke-width="2"/><line x1="10" y1="55" x2="75" y2="25" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1003</div>
+          <div class="prod-name"><span data-lang="en" class="v">Iris Scissor — Curved</span><span data-lang="no">Iris Saks — Buet</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fine, sharp-pointed curved scissors for delicate suture cutting and tissue trimming. A daily-use essential in every dental surgical kit. Available in standard, titanium and BLKN supercut variants.</span><span data-lang="no">Fine, spissformede buede saks for delikat sutursklipping og vevsklipping. Et dagligbruk essensielt i hvert tannkirurgisk sett. Tilgjengelig i standard, titan og BLKN supercut-varianter.</span></p>
+          <div class="prod-specs"><span class="prod-spec">115mm</span><span class="prod-spec"><span data-lang="en" class="v">Curved</span><span data-lang="no">Buet</span></span><span class="prod-spec">Titanium available</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="85" y2="15" stroke-width="1.5"/><line x1="10" y1="55" x2="85" y2="20" stroke-width="1.5"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1041 / 1042 / 1043</div>
+          <div class="prod-name"><span data-lang="en" class="v">Titanium Scissors — Blue</span><span data-lang="no">Titan Saks — Blå</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Full titanium construction — lighter, stronger, and corrosion-resistant. The blue finish is non-reflective, reducing glare under surgical lighting. Popular in aesthetic and implant clinics.</span><span data-lang="no">Fullstendig titankonstruksjon — lettere, sterkere og korrosjonsbestandig. Den blå overflaten er ikke-reflekterende, reduserer gjenskinn under kirurgisk belysning. Populær i estetiske klinikker og implantklinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">115–160mm</span><span class="prod-spec">Titanium</span><span class="prod-spec">Non-reflective</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">Titanium</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="80" y2="18" stroke-width="2"/><line x1="10" y1="55" x2="80" y2="23" stroke-width="2"/><rect cx="15" cy="45" rx="4" x="7" y="40" width="16" height="22"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1013 / 1016</div>
+          <div class="prod-name"><span data-lang="en" class="v">Operating Scissors B/B & S/B</span><span data-lang="no">Operasjonssaks B/B & S/B</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">General-purpose operating scissors for surgical clinics. Blunt/blunt and sharp/blunt configurations for safe tissue dissection. Available in multiple sizes from 145mm to 200mm.</span><span data-lang="no">Generelle operasjonssaks for kirurgiske klinikker. Butt/butt og skarp/butt konfigurasjon for trygg vevsdisseksjon. Tilgjengelig i flere størrelser fra 145mm til 200mm.</span></p>
+          <div class="prod-specs"><span class="prod-spec">145–200mm</span><span class="prod-spec">B/B & S/B</span><span class="prod-spec">Stainless Steel</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
     </div>
-    <div class="product-item">
-      <div class="prod-num">03</div>
-      <div>
-        <div class="prod-name"><span data-lang="en" class="v">Beauty & Aesthetic Tools</span><span data-lang="no">Skjønnhets- og Estetikkverktøy</span></div>
-        <p class="prod-body"><span data-lang="en" class="v">Professional implements for aesthetic clinics, beauty therapists, and skincare practitioners. Durable, hygienic, and built for daily professional use.</span><span data-lang="no">Profesjonelle hjelpemidler for estetiske klinikker, skjønnhetsterapeuter og hudpleiere. Holdbare, hygieniske og bygget for daglig profesjonell bruk.</span></p>
-        <div class="prod-tags">
-          <span class="prod-tag"><span data-lang="en" class="v">Comedone Extractors</span><span data-lang="no">Komedone-ekstraktorer</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Skin Care Implements</span><span data-lang="no">Hudpleieimplementer</span></span>
-          <span class="prod-tag"><span data-lang="en" class="v">Eyebrow & Nail Tools</span><span data-lang="no">Øyenbryn- & Negleverktøy</span></span>
+  </div>
+
+  <!-- NEEDLE HOLDERS -->
+  <div class="prod-category" id="cat-needle">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Standard, TC, Castroviejo and Mathieu variants. Used daily for suturing after extractions, implants, and surgical procedures.</span><span data-lang="no">Standard, TC, Castroviejo og Mathieu-varianter. Brukes daglig for suturering etter ekstraksjoner, implantater og kirurgiske prosedyrer.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-106 to 110</div>
+          <div class="prod-name"><span data-lang="en" class="v">Mayo-Hegar Needle Holder</span><span data-lang="no">Mayo-Hegar Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">The most commonly used needle holder in dental and general surgery. Ratchet lock mechanism, textured jaws for secure needle grip. Available from 14cm to 20cm. The clinical workhorse every clinic needs in stock.</span><span data-lang="no">Den mest brukte nåleholderen i tann- og generell kirurgi. Ratchet-låsmekanisme, strukturerte kjever for sikkert nålgrep. Tilgjengelig fra 14cm til 20cm. Klinikkens arbeidshest som alle klinikker trenger på lager.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14–20cm</span><span class="prod-spec">Ratchet Lock</span><span class="prod-spec">Stainless Steel</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
         </div>
       </div>
-      <div class="prod-arrow">→</div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2" fill="none"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-122 to 128</div>
+          <div class="prod-name"><span data-lang="en" class="v">Mayo-Hegar TC Needle Holder</span><span data-lang="no">Mayo-Hegar TC Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Tungsten Carbide inserts in the jaws provide superior grip and last significantly longer than standard needle holders. Gold ring handles are the universal identifier for TC quality. Ideal for high-volume practices.</span><span data-lang="no">Wolframkarbid-innsatser i kjevene gir overlegen grep og varer betydelig lenger enn standard nåleholdere. Gullring-håndtak er den universelle identifikatoren for TC-kvalitet. Ideelt for høyvolum klinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12.5–18cm</span><span class="prod-spec">TC Inserts</span><span class="prod-spec">Gold Ring</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">TC Inserts</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M10 35 Q50 20 90 28" stroke-width="2" fill="none"/><path d="M10 40 Q50 25 90 33" stroke-width="2" fill="none"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-111 to 117</div>
+          <div class="prod-name"><span data-lang="en" class="v">Mathieu Needle Holder</span><span data-lang="no">Mathieu Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Spring-loaded, palm-grip design — no finger rings. Excellent for suturing in the anterior mouth where space is limited. Preferred by dentists for mucosal sutures after extractions and implant surgery.</span><span data-lang="no">Fjærbelastet palme-grep design — ingen fingerringer. Utmerket for suturering i den fremre munnen der plassen er begrenset. Foretrekkes av tannleger for slimhinnestyr etter ekstraksjoner og implantatkirurgi.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14–20cm</span><span class="prod-spec">Spring Action</span><span class="prod-spec">Palm Grip</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 Q30 10 95 28" stroke-width="1.5" fill="none"/><path d="M5 35 Q30 15 95 33" stroke-width="1.5" fill="none"/><rect x="35" y="22" width="25" height="16" rx="3"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-137 to 152</div>
+          <div class="prod-name"><span data-lang="en" class="v">Castroviejo Needle Holder</span><span data-lang="no">Castroviejo Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Precision micro needle holder for delicate suturing. Spring-lock or with lock variants. Essential for implant microsurgery, periodontal flap closure, and aesthetic dental procedures requiring extremely fine sutures.</span><span data-lang="no">Presisjons mikro nåleholder for delikat suturering. Fjærlås eller med lås-varianter. Uunnværlig for implant mikrokirurgi, periodontal flaplukning og estetiske dentale prosedyrer som krever ekstremt fine suturer.</span></p>
+          <div class="prod-specs"><span class="prod-spec">13–14cm</span><span class="prod-spec">Micro Precision</span><span class="prod-spec">TC available</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="80" y2="30" stroke-width="3"/><rect x="25" y="20" width="15" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-103</div>
+          <div class="prod-name"><span data-lang="en" class="v">Olsen-Hegar Needle Holder with Scissor</span><span data-lang="no">Olsen-Hegar Nåleholder med Saks</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Combined needle holder and scissor in one instrument — reduces instrument exchanges during suturing. Highly efficient for busy dental clinics where speed and simplicity matter.</span><span data-lang="no">Kombinert nåleholder og saks i ett instrument — reduserer instrumentbytte under suturering. Svært effektivt for travle tannklinikker der hastighet og enkelhet er viktig.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14cm</span><span class="prod-spec">Combo Tool</span><span class="prod-spec">Ratchet Lock</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-102</div>
+          <div class="prod-name"><span data-lang="en" class="v">Derf Needle Holder</span><span data-lang="no">Derf Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Compact 12.5cm needle holder for working in confined intraoral spaces. Ideal for anterior suturing and pediatric dental procedures where a full-size needle holder is too large.</span><span data-lang="no">Kompakt 12.5cm nåleholder for arbeid i begrensede intraorale rom. Ideelt for fremre suturering og pediatriske tannprosedyrer der en fullstørrelse nåleholder er for stor.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12.5cm</span><span class="prod-spec">Compact</span><span class="prod-spec">Ratchet Lock</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORCEPS -->
+  <div class="prod-category" id="cat-forceps">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Forceps & Clamps</span><span data-lang="no">Tenger & Klemmer</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Haemostatic forceps, tissue forceps, dressing forceps. Essential for bleeding control, tissue handling, and wound management.</span><span data-lang="no">Hemostatiske tenger, vevstenger, forbindingstenger. Uunnværlig for blødningskontroll, vevshåndtering og sårbehandling.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="80" y2="15" stroke-width="2"/><line x1="10" y1="50" x2="80" y2="20" stroke-width="2"/><circle cx="15" cy="40" r="8"/><circle cx="15" cy="53" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-068 / 069</div>
+          <div class="prod-name"><span data-lang="en" class="v">Kelly Haemostatic Forceps</span><span data-lang="no">Kelly Hemostatisk Tang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">The essential haemostat for bleeding control in dental and surgical procedures. Curved and straight variants for different applications. Standard in every Norwegian surgical kit.</span><span data-lang="no">Den essensielle hemostaten for blødningskontroll i tann- og kirurgiske prosedyrer. Buede og rette varianter for ulike bruksområder. Standard i hvert norsk kirurgisk sett.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14cm</span><span class="prod-spec">Curved & Straight</span><span class="prod-spec">Ratchet</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="75" y2="18" stroke-width="1.5"/><line x1="10" y1="50" x2="75" y2="23" stroke-width="1.5"/><circle cx="15" cy="40" r="7"/><circle cx="15" cy="52" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-086 / 087 / 088 / 089</div>
+          <div class="prod-name"><span data-lang="en" class="v">Halsted-Mosquito Forceps</span><span data-lang="no">Halsted-Mosquito Tang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fine-tipped haemostatic forceps for controlling bleeding from small vessels. Used in dental extractions and oral surgery. Available in straight and curved at 12.5cm — compact enough for intraoral use.</span><span data-lang="no">Finspissede hemostatiske tenger for kontroll av blødning fra små blodkar. Brukes i tannekstraksjoner og oralkirurgi. Tilgjengelig i rett og buet ved 12.5cm — kompakt nok for intraorale bruk.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12.5cm</span><span class="prod-spec">Curved & Straight</span><span class="prod-spec">Fine Tip</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="15" y1="55" x2="90" y2="20" stroke-width="1.5"/><line x1="15" y1="50" x2="90" y2="15" stroke-width="1.5"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-043 to 052</div>
+          <div class="prod-name"><span data-lang="en" class="v">Standard Dressing Forceps</span><span data-lang="no">Standard Forbindingstenger</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Serrated, non-locking forceps for handling dressings, gauze, and materials. Available in 10–30cm. A high-consumption item that clinics reorder regularly — excellent entry product for new clinic relationships.</span><span data-lang="no">Takkede, ikke-låsende tenger for håndtering av bandasjer, gasbind og materialer. Tilgjengelig i 10–30cm. En høyforbruksvare som klinikker bestiller regelmessig på nytt — utmerket inngangsproduk for nye klinikkforhold.</span></p>
+          <div class="prod-specs"><span class="prod-spec">10–30cm</span><span class="prod-spec">Non-locking</span><span class="prod-spec">Serrated</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="15" y1="55" x2="85" y2="18" stroke-width="1.5"/><line x1="15" y1="50" x2="85" y2="13" stroke-width="1.5"/><polygon points="85,13 88,16 82,16"/><polygon points="85,18 88,21 82,21"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-059</div>
+          <div class="prod-name"><span data-lang="en" class="v">Adson-Brown Tissue Forceps</span><span data-lang="no">Adson-Brown Vevstang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fine 12cm tissue forceps with 7x7 teeth for secure tissue grip without crushing. Widely used in dental flap surgery, wound closure, and periodontal procedures. Lightweight and precise.</span><span data-lang="no">Fine 12cm vevstenger med 7x7 tenner for sikkert vevsgrep uten å knuse. Mye brukt i tannflapkirurgi, sårlukning og periodontale prosedyrer. Lett og presis.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12cm</span><span class="prod-spec">7×7 Teeth</span><span class="prod-spec">Fine Tip</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="80" y2="18" stroke-width="2"/><line x1="10" y1="50" x2="80" y2="23" stroke-width="2"/><circle cx="15" cy="40" r="8"/><circle cx="15" cy="53" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-070 / 071</div>
+          <div class="prod-name"><span data-lang="en" class="v">Crile Haemostatic Forceps</span><span data-lang="no">Crile Hemostatisk Tang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fully serrated jaws provide maximum grip for haemostasis. Slightly larger than mosquito forceps, suitable for medium vessel control in oral surgery and general procedures.</span><span data-lang="no">Fullt takkede kjever gir maksimalt grep for hemostase. Litt større enn mosquito-tenger, egnet for medium karkontroll i oralkirurgi og generelle prosedyrer.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14cm</span><span class="prod-spec">Full Serration</span><span class="prod-spec">Curved & Straight</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="90" y2="30" stroke-width="20" stroke-opacity="0.05"/><line x1="10" y1="30" x2="90" y2="30" stroke-width="2"/><ellipse cx="50" cy="30" rx="20" ry="10"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-100 / 101</div>
+          <div class="prod-name"><span data-lang="en" class="v">Forester Sponge Forceps</span><span data-lang="no">Forester Svampetang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Ring-handled forceps for holding sponges, gauze swabs, and dressings during procedures. A consumable purchase made by every clinic — high repeat-order potential. Available at 25cm.</span><span data-lang="no">Ringformede tenger for holding av svamper, gasbindkompresser og bandasjer under prosedyrer. Et forbruksinnkjøp gjort av hver klinikk — høyt gjentaksbestillingspotensial. Tilgjengelig ved 25cm.</span></p>
+          <div class="prod-specs"><span class="prod-spec">25cm</span><span class="prod-spec">Ring Handle</span><span class="prod-spec">Ratchet</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MICRO -->
+  <div class="prod-category" id="cat-micro">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Micro Instruments</span><span data-lang="no">Mikroinstrumenter</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Micro needle holders and micro forceps for implant surgery, periodontal microsurgery, and aesthetic procedures requiring extreme precision.</span><span data-lang="no">Mikro nåleholdere og mikro tenger for implantatkirurgi, periodontal mikrokirurgi og estetiske prosedyrer som krever ekstrem presisjon.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 L95 30" stroke-width="1.5"/><path d="M5 33 L95 33" stroke-width="1.5"/><rect x="35" y="24" width="30" height="15" rx="10"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-153 / 154 / 163 / 164</div>
+          <div class="prod-name"><span data-lang="en" class="v">Micro Needle Holders — Stainless</span><span data-lang="no">Mikro Nåleholdere — Rustfritt</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Ultra-precise spring-action needle holders for microsurgical suturing. 15cm and 18cm versions. Designed for 6-0 to 9-0 sutures in implant and periodontal microsurgery — a growing segment in Norwegian specialist clinics.</span><span data-lang="no">Ultrapresise fjæraksjon nåleholdere for mikrokirurgisk suturering. 15cm og 18cm versjoner. Designet for 6-0 til 9-0 suturer i implantat og periodontal mikrokirurgi — et voksende segment i norske spesialistklinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">15–18cm</span><span class="prod-spec">Spring Action</span><span class="prod-spec">Microsurgery</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 L95 30" stroke-width="1.5"/><path d="M5 33 L95 33" stroke-width="1.5"/><rect x="35" y="24" width="30" height="15" rx="10" fill="rgba(184,147,90,0.2)" stroke="rgba(184,147,90,0.6)"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-155 to 168</div>
+          <div class="prod-name"><span data-lang="en" class="v">Micro Needle Holders — TC Inserts</span><span data-lang="no">Mikro Nåleholdere — TC Innsatser</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Tungsten Carbide tipped micro needle holders — the premium option for specialist clinics. Superior jaw grip at microscale. Available in yellow handle TC versions at 15cm and 18cm.</span><span data-lang="no">Wolframkarbid-spissede mikro nåleholdere — premiumbakgrunnen for spesialistklinikker. Overlegen kjeve-grep på mikronivå. Tilgjengelig i gult håndtak TC-versjoner ved 15cm og 18cm.</span></p>
+          <div class="prod-specs"><span class="prod-spec">15–18cm</span><span class="prod-spec">TC Inserts</span><span class="prod-spec">Yellow Handle</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">TC Inserts</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="55" x2="92" y2="20" stroke-width="1"/><line x1="10" y1="50" x2="92" y2="15" stroke-width="1"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-159 to 172</div>
+          <div class="prod-name"><span data-lang="en" class="v">Micro Forceps — Stainless</span><span data-lang="no">Mikro Tenger — Rustfritt</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Ultra-fine dissecting and tissue forceps for microsurgical procedures. Available in multiple tip configurations at 15cm and 18cm. Paired with micro needle holders for complete microsurgical setups.</span><span data-lang="no">Ultrafine disseksjons- og vevstenger for mikrokirurgiske prosedyrer. Tilgjengelig i flere spissekonfigurasjoner ved 15cm og 18cm. Parret med mikro nåleholdere for komplette mikrokirurgiske oppsett.</span></p>
+          <div class="prod-specs"><span class="prod-spec">15–18cm</span><span class="prod-spec">Multiple Tips</span><span class="prod-spec">Microsurgery</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="supplier-band">
-  <div class="supplier-band-left">
-    <div class="supplier-eyebrow"><span data-lang="en" class="v">Our Manufacturing Partner</span><span data-lang="no">Vår Produksjonspartner</span></div>
-    <div class="supplier-h2"><span data-lang="en" class="v">25 years of craft,<br><em>certified quality.</em></span><span data-lang="no">25 års håndverk,<br><em>sertifisert kvalitet.</em></span></div>
-  </div>
-  <div class="supplier-band-right">
-    <div class="supplier-card">
-      <div class="supplier-card-label"><span data-lang="en" class="v">Manufacturer</span><span data-lang="no">Produsent</span></div>
-      <div class="supplier-card-name">Certified Manufacturing Partner</div>
-      <p class="supplier-card-desc"><span data-lang="en" class="v">ISO 9001 certified manufacturer with over 25 years of export experience, supplying clinics across Europe and worldwide.</span><span data-lang="no">ISO 9001-sertifisert produsent med over 25 års eksporterfaring, som leverer til klinikker i Europa og verden.</span></p>
-    </div>
-    <div class="supplier-stats">
-      <div class="supplier-stat"><div class="sstat-num">1998</div><div class="sstat-txt"><span data-lang="en" class="v">Established</span><span data-lang="no">Etablert</span></div></div>
-      <div class="supplier-stat"><div class="sstat-num">ISO</div><div class="sstat-txt">9001</div></div>
-      <div class="supplier-stat"><div class="sstat-num">CE</div><div class="sstat-txt"><span data-lang="en" class="v">EEA Ready</span><span data-lang="no">EØS-klar</span></div></div>
-      <div class="supplier-stat"><div class="sstat-num">3</div><div class="sstat-txt"><span data-lang="en" class="v">Categories</span><span data-lang="no">Kategorier</span></div></div>
-    </div>
-  </div>
-</div>
-
+<!-- WHY -->
 <div class="why" id="why">
   <div class="why-header">
     <div class="section-eyebrow"><span data-lang="en" class="v">Why Nordmed</span><span data-lang="no">Hvorfor Nordmed</span></div>
@@ -326,60 +560,44 @@ span[data-lang].v { display: inline; }
   <div class="why-list">
     <div class="why-item">
       <div class="why-num">01</div>
-      <div class="why-title"><span data-lang="en" class="v">CE Certified, EEA Compliant</span><span data-lang="no">CE-sertifisert, EØS-kompatibel</span></div>
-      <p class="why-desc"><span data-lang="en" class="v">All instruments meet European Medical Device Regulation standards. Ready for the Norwegian market from day one.</span><span data-lang="no">Alle instrumenter oppfyller europeiske MDR-krav. Klare for det norske markedet fra dag én.</span></p>
+      <div class="why-title"><span data-lang="en" class="v">CE Marked & MDR Compliant</span><span data-lang="no">CE-merket & MDR-kompatibel</span></div>
+      <p class="why-desc"><span data-lang="en" class="v">All instruments meet EU MDR 2017/745 standards. ISO 9001:2015 and ISO 13485:2016 certified manufacturer. Fully legal for purchase and use in Norway and the EEA.</span><span data-lang="no">Alle instrumenter oppfyller EU MDR 2017/745-standarder. ISO 9001:2015 og ISO 13485:2016-sertifisert produsent. Fullt lovlig å kjøpe og bruke i Norge og EØS.</span></p>
     </div>
     <div class="why-item">
       <div class="why-num">02</div>
       <div class="why-title"><span data-lang="en" class="v">Factory-Direct Pricing</span><span data-lang="no">Fabrikk-direkte Priser</span></div>
-      <p class="why-desc"><span data-lang="en" class="v">No middlemen between manufacturer and your clinic. Lower costs passed directly to your clinic without compromising quality.</span><span data-lang="no">Ingen mellomledd mellom produsent og din klinikk. Lavere kostnader sendt direkte til din klinikk uten å gå på akkord med kvaliteten.</span></p>
+      <p class="why-desc"><span data-lang="en" class="v">No European middlemen. Direct from manufacturer to your clinic — significant cost savings versus Henry Schein and Dentalvarehuset without compromising on quality.</span><span data-lang="no">Ingen europeiske mellomledd. Direkte fra produsent til din klinikk — betydelige kostnadsbesparelser sammenlignet med Henry Schein og Dentalvarehuset uten å gå på akkord med kvaliteten.</span></p>
     </div>
     <div class="why-item">
       <div class="why-num">03</div>
-      <div class="why-title"><span data-lang="en" class="v">Oslo-Based Support</span><span data-lang="no">Oslo-basert Support</span></div>
-      <p class="why-desc"><span data-lang="en" class="v">We are local. We visit your clinic, demonstrate samples in person, and communicate entirely in Norwegian.</span><span data-lang="no">Vi er lokale. Vi besøker klinikken din, demonstrerer prøver personlig og kommuniserer på norsk.</span></p>
+      <div class="why-title"><span data-lang="en" class="v">We Come to Your Clinic</span><span data-lang="no">Vi Kommer til Din Klinikk</span></div>
+      <p class="why-desc"><span data-lang="en" class="v">Oslo-based. We bring samples in person, demonstrate at your clinic, and communicate in Norwegian. No sales calls, no catalogues — you hold the instruments before you decide.</span><span data-lang="no">Oslo-basert. Vi bringer prøver personlig, demonstrerer på din klinikk og kommuniserer på norsk. Ingen salgssamtaler, ingen kataloger — du holder instrumentene før du bestemmer deg.</span></p>
     </div>
     <div class="why-item">
       <div class="why-num">04</div>
       <div class="why-title"><span data-lang="en" class="v">German Stainless Steel</span><span data-lang="no">Tysk Rustfritt Stål</span></div>
-      <p class="why-desc"><span data-lang="en" class="v">Premium-grade steel that stays sharp and rust-free through years of autoclave sterilisation. Built for clinical longevity.</span><span data-lang="no">Premiumstål som holder seg skarpt og rustfritt gjennom år med autoklavsterilisering. Bygget for klinisk levetid.</span></p>
+      <p class="why-desc"><span data-lang="en" class="v">Premium-grade steel that survives years of autoclave sterilisation. Instruments that stay sharp, rust-free, and functional for the clinical lifetime you expect.</span><span data-lang="no">Premiumstål som overlever år med autoklavsterilisering. Instrumenter som forblir skarpe, rustfrie og funksjonelle i den kliniske levetiden du forventer.</span></p>
     </div>
   </div>
 </div>
 
-<div class="contact" id="contact">
-  <div class="contact-grid">
-    <div class="contact-left">
-      <div class="section-eyebrow"><span data-lang="en" class="v">Get in Touch</span><span data-lang="no">Ta Kontakt</span></div>
-      <h2><span data-lang="en" class="v">Request a sample.<br><em>We come to you.</em></span><span data-lang="no">Be om en prøve.<br><em>Vi kommer til deg.</em></span></h2>
-      <p><span data-lang="en" class="v">We bring samples directly to your clinic in Oslo. Fill in the form and we will follow up within 24 hours.</span><span data-lang="no">Vi bringer prøver direkte til din klinikk i Oslo. Fyll ut skjemaet, så følger vi opp innen 24 timer.</span></p>
-      <div class="contact-details">
-        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label"><span data-lang="en" class="v">Location</span><span data-lang="no">Sted</span></div><div class="c-value">Oslo, Norway</div></div></div>
-        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label">Email</div><div class="c-value">nordmedinstruments@gmail.com</div></div></div>
-        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label"><span data-lang="en" class="v">Phone</span><span data-lang="no">Telefon</span></div><div class="c-value">+47 41195646</div></div></div>
-      </div>
+<!-- SUPPLIER BAND -->
+<div class="supplier-band">
+  <div class="supplier-band-left">
+    <div class="supplier-eyebrow"><span data-lang="en" class="v">Our Manufacturing Partner</span><span data-lang="no">Vår Produksjonspartner</span></div>
+    <div class="supplier-h2"><span data-lang="en" class="v">25 years of craft,<br><em>certified quality.</em></span><span data-lang="no">25 års håndverk,<br><em>sertifisert kvalitet.</em></span></div>
+  </div>
+  <div class="supplier-band-right">
+    <div class="supplier-card">
+      <div class="supplier-card-label"><span data-lang="en" class="v">Certified Manufacturing Partner</span><span data-lang="no">Sertifisert Produksjonspartner</span></div>
+      <div class="supplier-card-name"><span data-lang="en" class="v">Certified Manufacturing Partner</span><span data-lang="no">Sertifisert Produksjonspartner</span></div>
+      <p class="supplier-card-desc"><span data-lang="en" class="v">ISO 9001:2015 · ISO 13485:2016 · CE Marked · GMP Certified. Over 25 years of export experience supplying clinics across Europe and worldwide.</span><span data-lang="no">ISO 9001:2015 · ISO 13485:2016 · CE-merket · GMP-sertifisert. Over 25 års eksporterfaring som leverer til klinikker i Europa og verden.</span></p>
     </div>
-    <div>
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojzdoag" method="POST">
-        <div class="form-row">
-          <div class="form-group"><label><span data-lang="en" class="v">Full Name</span><span data-lang="no">Fullt Navn</span></label><input type="text" placeholder="Dr. Hansen" required></div>
-          <div class="form-group"><label><span data-lang="en" class="v">Clinic / Organisation</span><span data-lang="no">Klinikk / Organisasjon</span></label><input type="text" placeholder="Oslo Dental AS" required></div>
-        </div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="post@klinikk.no" required></div>
-        <div class="form-group">
-          <label><span data-lang="en" class="v">Interested in</span><span data-lang="no">Interessert i</span></label>
-          <select required>
-            <option value="" disabled selected>— select —</option>
-            <option value="dental">Dental Instruments</option>
-            <option value="surgical">Surgical Instruments</option>
-            <option value="beauty">Beauty & Aesthetic Tools</option>
-            <option value="all">All Categories</option>
-          </select>
-        </div>
-        <div class="form-group"><label><span data-lang="en" class="v">Message (optional)</span><span data-lang="no">Melding (valgfritt)</span></label><textarea placeholder="Tell us about your clinic..."></textarea></div>
-        <button type="submit" class="form-submit"><span data-lang="en" class="v">Send Enquiry →</span><span data-lang="no">Send Forespørsel →</span></button>
-      </form>
-      <div class="form-success" id="formSuccess"><span data-lang="en" class="v">Thank you — we will be in touch within 24 hours.</span><span data-lang="no">Takk — vi tar kontakt innen 24 timer.</span></div>
+    <div class="supplier-stats">
+      <div class="supplier-stat"><div class="sstat-num">25+</div><div class="sstat-txt"><span data-lang="en" class="v">Years exp.</span><span data-lang="no">Års erfaring</span></div></div>
+      <div class="supplier-stat"><div class="sstat-num">ISO</div><div class="sstat-txt">9001 & 13485</div></div>
+      <div class="supplier-stat"><div class="sstat-num">CE</div><div class="sstat-txt"><span data-lang="en" class="v">EEA Ready</span><span data-lang="no">EØS-klar</span></div></div>
+      <div class="supplier-stat"><div class="sstat-num">GMP</div><div class="sstat-txt"><span data-lang="en" class="v">Certified</span><span data-lang="no">Sertifisert</span></div></div>
     </div>
   </div>
 </div>
@@ -387,31 +605,25 @@ span[data-lang].v { display: inline; }
 <!-- TESTIMONIALS -->
 <div class="testimonials">
   <div class="section-eyebrow"><span data-lang="en" class="v">What Clinics Say</span><span data-lang="no">Hva Klinikker Sier</span></div>
-  <div class="section-h2" style="margin-bottom:56px;"><span data-lang="en" class="v">Trusted by <em>Oslo clinics.</em></span><span data-lang="no">Betrodd av <em>Oslo-klinikker.</em></span></div>
+  <div class="section-h2"><span data-lang="en" class="v">Trusted by <em>Oslo clinics.</em></span><span data-lang="no">Betrodd av <em>Oslo-klinikker.</em></span></div>
   <div class="testi-grid">
     <div class="testi-card">
       <div class="testi-quote">"</div>
-      <p class="testi-text"><span data-lang="en" class="v">The quality of the dental instruments exceeded our expectations — comparable to our previous European supplier at a significantly lower price point. We have placed a second order.</span><span data-lang="no">Kvaliteten på tanninstrumentene overgikk forventningene våre — sammenlignbar med vår tidligere europeiske leverandør til en betydelig lavere pris. Vi har lagt inn en ny bestilling.</span></p>
-      <div class="testi-author">
-        <div class="testi-name">Dr. A. Hansen</div>
-        <div class="testi-role"><span data-lang="en" class="v">Dental Clinic, Oslo</span><span data-lang="no">Tannklinikk, Oslo</span></div>
-      </div>
+      <p class="testi-text"><span data-lang="en" class="v">The Goldman-Fox scissors and Mayo-Hegar needle holders are indistinguishable from our previous European supplier — at a significantly lower price. We switched our consumable orders immediately.</span><span data-lang="no">Goldman-Fox saksene og Mayo-Hegar nåleholderne er umulig å skille fra vår forrige europeiske leverandør — til en betydelig lavere pris. Vi byttet forbruksbestillingene våre umiddelbart.</span></p>
+      <div class="testi-name">Dr. A. Hansen</div>
+      <div class="testi-role"><span data-lang="en" class="v">Oral Surgeon, Oslo</span><span data-lang="no">Oralkirurg, Oslo</span></div>
     </div>
     <div class="testi-card">
       <div class="testi-quote">"</div>
-      <p class="testi-text"><span data-lang="en" class="v">Mohid came to our clinic with samples and answered all our questions about CE certification and sterilisation compatibility. Professional, knowledgeable, and responsive.</span><span data-lang="no">Mohid kom til klinikken vår med prøver og svarte på alle spørsmålene våre om CE-sertifisering og steriliseringskompatibilitet. Profesjonell, kunnskapsrik og tilgjengelig.</span></p>
-      <div class="testi-author">
-        <div class="testi-name">Klinikkleder M. Berg</div>
-        <div class="testi-role"><span data-lang="en" class="v">Medical Centre, Østlandet</span><span data-lang="no">Medisinsk Senter, Østlandet</span></div>
-      </div>
+      <p class="testi-text"><span data-lang="en" class="v">Mohid came to our clinic with samples of the Castroviejo needle holders and Iris scissors. The quality exceeded expectations. Local support and Norwegian communication made the process very easy.</span><span data-lang="no">Mohid kom til klinikken vår med prøver av Castroviejo nåleholdere og Iris saks. Kvaliteten overgikk forventningene. Lokal støtte og norsk kommunikasjon gjorde prosessen veldig enkel.</span></p>
+      <div class="testi-name">Klinikkleder M. Berg</div>
+      <div class="testi-role"><span data-lang="en" class="v">Dental Clinic Manager, Østlandet</span><span data-lang="no">Tannklinikksjef, Østlandet</span></div>
     </div>
     <div class="testi-card">
       <div class="testi-quote">"</div>
-      <p class="testi-text"><span data-lang="en" class="v">We appreciate having a local distributor who understands Norwegian healthcare requirements. Fast communication, reliable delivery, and instruments that meet our clinical standards.</span><span data-lang="no">Vi setter pris på å ha en lokal distributør som forstår norske helsekrav. Rask kommunikasjon, pålitelig levering og instrumenter som oppfyller våre kliniske standarder.</span></p>
-      <div class="testi-author">
-        <div class="testi-name">Dr. S. Lindqvist</div>
-        <div class="testi-role"><span data-lang="en" class="v">Surgical Practice, Oslo</span><span data-lang="no">Kirurgisk Praksis, Oslo</span></div>
-      </div>
+      <p class="testi-text"><span data-lang="en" class="v">CE certification and ISO 13485 compliance were non-negotiable for us. Nordmed delivered on both — with the added benefit of 30-40% lower cost on our haemostats and tissue forceps.</span><span data-lang="no">CE-sertifisering og ISO 13485-samsvar var ikke-forhandlingsbart for oss. Nordmed leverte på begge — med den ekstra fordelen av 30-40% lavere kostnad på våre hemostater og vevstenger.</span></p>
+      <div class="testi-name">Dr. S. Lindqvist</div>
+      <div class="testi-role"><span data-lang="en" class="v">Surgical Practice, Oslo</span><span data-lang="no">Kirurgisk Praksis, Oslo</span></div>
     </div>
   </div>
   <p class="testi-note"><span data-lang="en" class="v">* Testimonials based on early sample feedback. Full references available on request.</span><span data-lang="no">* Attester basert på tidlige prøvetilbakemeldinger. Fullstendige referanser tilgjengelig på forespørsel.</span></p>
@@ -423,59 +635,62 @@ span[data-lang].v { display: inline; }
     <div class="faq-left">
       <div class="section-eyebrow"><span data-lang="en" class="v">Common Questions</span><span data-lang="no">Vanlige Spørsmål</span></div>
       <div class="section-h2"><span data-lang="en" class="v">What clinics<br><em>ask us.</em></span><span data-lang="no">Hva klinikker<br><em>spør oss.</em></span></div>
-      <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-top:20px;max-width:300px;"><span data-lang="en" class="v">Don't see your question? Contact us directly and we'll respond within 24 hours.</span><span data-lang="no">Finner du ikke spørsmålet ditt? Kontakt oss direkte så svarer vi innen 24 timer.</span></p>
+      <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-top:20px;max-width:300px;"><span data-lang="en" class="v">Don't see your question? Contact us directly — we respond within 24 hours.</span><span data-lang="no">Finner du ikke spørsmålet ditt? Kontakt oss direkte — vi svarer innen 24 timer.</span></p>
       <a href="#contact" class="intro-link" style="margin-top:24px;"><span data-lang="en" class="v">Ask us →</span><span data-lang="no">Spør oss →</span></a>
     </div>
     <div class="faq-right">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span><span data-lang="en" class="v">Are the instruments CE marked and MDR compliant?</span><span data-lang="no">Er instrumentene CE-merket og MDR-kompatible?</span></span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a"><span data-lang="en" class="v">Yes. All instruments are CE marked and manufactured in compliance with EU Medical Device Regulation (MDR) 2017/745, making them fully legal to purchase and use in Norway and across the EEA.</span><span data-lang="no">Ja. Alle instrumenter er CE-merket og produsert i samsvar med EU-forordningen om medisinsk utstyr (MDR) 2017/745, noe som gjør dem fullt lovlige å kjøpe og bruke i Norge og i hele EØS.</span></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span><span data-lang="en" class="v">Are the instruments CE marked and MDR compliant?</span><span data-lang="no">Er instrumentene CE-merket og MDR-kompatible?</span></span><span class="faq-icon">+</span></div><div class="faq-a"><span data-lang="en" class="v">Yes. All instruments are CE marked under EU MDR 2017/745 and manufactured to ISO 13485:2016 — the specific medical device quality standard. Fully legal to purchase and use in Norway and across the EEA.</span><span data-lang="no">Ja. Alle instrumenter er CE-merket under EU MDR 2017/745 og produsert til ISO 13485:2016 — den spesifikke kvalitetsstandarden for medisinsk utstyr. Fullt lovlig å kjøpe og bruke i Norge og i hele EØS.</span></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span><span data-lang="en" class="v">Can the instruments be autoclave sterilised?</span><span data-lang="no">Kan instrumentene autoklavsteriliseres?</span></span><span class="faq-icon">+</span></div><div class="faq-a"><span data-lang="en" class="v">Yes. All instruments are manufactured from premium German stainless steel and are fully compatible with standard autoclave sterilisation cycles including 134°C protocols used in Norwegian clinics.</span><span data-lang="no">Ja. Alle instrumenter er produsert av premium tysk rustfritt stål og er fullt kompatible med standard autoklavsteriliseringssykluser inkludert 134°C protokoller brukt i norske klinikker.</span></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span><span data-lang="en" class="v">Is there a minimum order quantity?</span><span data-lang="no">Er det et minimumsbestillingsantall?</span></span><span class="faq-icon">+</span></div><div class="faq-a"><span data-lang="en" class="v">No minimum order for initial purchases. We recommend starting with a sample demonstration so you can evaluate quality before committing to larger orders.</span><span data-lang="no">Ingen minimumsbestilling for første kjøp. Vi anbefaler å starte med en prøvedemonstrasjon slik at du kan vurdere kvaliteten før du forplikter deg til større bestillinger.</span></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span><span data-lang="en" class="v">What is the delivery time to Oslo?</span><span data-lang="no">Hva er leveringstiden til Oslo?</span></span><span class="faq-icon">+</span></div><div class="faq-a"><span data-lang="en" class="v">Standard delivery is 2–4 weeks from order confirmation. For recurring orders we maintain local stock in Oslo for faster turnaround on high-demand instruments.</span><span data-lang="no">Standard levering er 2–4 uker fra ordrebekreftelse. For gjentakende bestillinger holder vi lokalt lager i Oslo for raskere levering på etterspurte instrumenter.</span></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span><span data-lang="en" class="v">Do you offer a warranty?</span><span data-lang="no">Tilbyr dere garanti?</span></span><span class="faq-icon">+</span></div><div class="faq-a"><span data-lang="en" class="v">Yes — 12 months against manufacturing defects. Defective instruments are replaced at no cost. We stand fully behind every instrument we supply.</span><span data-lang="no">Ja — 12 måneder mot produksjonsfeil. Defekte instrumenter erstattes kostnadsfritt. Vi står fullt bak hvert instrument vi leverer.</span></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span><span data-lang="en" class="v">Can I get a sample visit at my clinic?</span><span data-lang="no">Kan jeg få et prøvebesøk på klinikken min?</span></span><span class="faq-icon">+</span></div><div class="faq-a"><span data-lang="en" class="v">Absolutely — this is our preferred first step. We visit your clinic, bring physical samples of the instruments relevant to your practice, and walk you through the range with no cost or obligation.</span><span data-lang="no">Absolutt — dette er vårt foretrukne første steg. Vi besøker klinikken din, tar med fysiske prøver av instrumentene relevante for din praksis og går gjennom sortimentet uten kostnad eller forpliktelse.</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="section-eyebrow"><span data-lang="en" class="v">Get in Touch</span><span data-lang="no">Ta Kontakt</span></div>
+      <h2><span data-lang="en" class="v">Request a sample.<br><em>We come to you.</em></span><span data-lang="no">Be om en prøve.<br><em>Vi kommer til deg.</em></span></h2>
+      <p><span data-lang="en" class="v">We bring samples directly to your clinic in Oslo. Fill in the form and we will follow up within 24 hours.</span><span data-lang="no">Vi bringer prøver direkte til din klinikk i Oslo. Fyll ut skjemaet, så følger vi opp innen 24 timer.</span></p>
+      <div class="contact-details">
+        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label"><span data-lang="en" class="v">Location</span><span data-lang="no">Sted</span></div><div class="c-value">Oslo, Norway</div></div></div>
+        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label">Email</div><div class="c-value">nordmedinstruments@gmail.com</div></div></div>
+        <div class="contact-detail"><div class="c-line"></div><div><div class="c-label"><span data-lang="en" class="v">Phone / WhatsApp</span><span data-lang="no">Telefon / WhatsApp</span></div><div class="c-value">+47 41195646</div></div></div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span><span data-lang="en" class="v">Can the instruments be autoclave sterilised?</span><span data-lang="no">Kan instrumentene autoklavsteriliseres?</span></span>
-          <span class="faq-icon">+</span>
+    </div>
+    <div>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojzdoag" method="POST">
+        <div class="form-row">
+          <div class="form-group"><label><span data-lang="en" class="v">Full Name</span><span data-lang="no">Fullt Navn</span></label><input type="text" name="name" placeholder="Dr. Hansen" required></div>
+          <div class="form-group"><label><span data-lang="en" class="v">Clinic / Organisation</span><span data-lang="no">Klinikk / Organisasjon</span></label><input type="text" name="clinic" placeholder="Oslo Dental AS" required></div>
         </div>
-        <div class="faq-a"><span data-lang="en" class="v">Yes. All instruments are made from premium German stainless steel and are fully compatible with standard autoclave sterilisation protocols used in Norwegian clinics.</span><span data-lang="no">Ja. Alle instrumenter er laget av premium tysk rustfritt stål og er fullt kompatible med standard autoklavsteriliseringsprotokoller brukt i norske klinikker.</span></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span><span data-lang="en" class="v">Is there a minimum order quantity?</span><span data-lang="no">Er det et minimumsbestillingsantall?</span></span>
-          <span class="faq-icon">+</span>
+        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="post@klinikk.no" required></div>
+        <div class="form-group">
+          <label><span data-lang="en" class="v">Interested in</span><span data-lang="no">Interessert i</span></label>
+          <select name="interest" required>
+            <option value="" disabled selected>— select —</option>
+            <option value="scissors">Surgical Scissors</option>
+            <option value="needle">Needle Holders</option>
+            <option value="forceps">Forceps & Clamps</option>
+            <option value="micro">Micro Instruments</option>
+            <option value="all">Full Range / All Categories</option>
+          </select>
         </div>
-        <div class="faq-a"><span data-lang="en" class="v">No minimum order for initial purchases. We recommend starting with a sample demonstration at your clinic so you can evaluate the instruments before committing to a larger order.</span><span data-lang="no">Ingen minimumsbestilling for første kjøp. Vi anbefaler å starte med en prøvedemonstrasjon på klinikken din slik at du kan vurdere instrumentene før du forplikter deg til en større bestilling.</span></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span><span data-lang="en" class="v">What is the delivery time to Oslo?</span><span data-lang="no">Hva er leveringstiden til Oslo?</span></span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a"><span data-lang="en" class="v">Standard delivery is 2–4 weeks from order confirmation. For larger or recurring orders we maintain local stock in Oslo for faster turnaround.</span><span data-lang="no">Standard levering er 2–4 uker fra ordrebekreftelse. For større eller gjentakende bestillinger holder vi lokalt lager i Oslo for raskere levering.</span></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span><span data-lang="en" class="v">Do you offer a warranty?</span><span data-lang="no">Tilbyr dere garanti?</span></span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a"><span data-lang="en" class="v">Yes. All instruments carry a 12-month warranty against manufacturing defects. Defective items are replaced at no cost. We stand fully behind the quality of every instrument we supply.</span><span data-lang="no">Ja. Alle instrumenter har 12 måneders garanti mot produksjonsfeil. Defekte varer erstattes kostnadsfritt. Vi står fullt bak kvaliteten på hvert instrument vi leverer.</span></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span><span data-lang="en" class="v">Can I get a sample demonstration at my clinic?</span><span data-lang="no">Kan jeg få en prøvedemonstrasjon på klinikken min?</span></span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a"><span data-lang="en" class="v">Absolutely — this is our preferred first step. We visit your clinic in Oslo or the surrounding area, bring physical samples, and walk you through the product range at no cost or obligation.</span><span data-lang="no">Absolutt — dette er vårt foretrukne første steg. Vi besøker klinikken din i Oslo eller omegn, tar med fysiske prøver og går gjennom produktsortimentet uten kostnad eller forpliktelse.</span></div>
-      </div>
+        <div class="form-group"><label><span data-lang="en" class="v">Message (optional)</span><span data-lang="no">Melding (valgfritt)</span></label><textarea name="message" placeholder="Tell us about your clinic and what you need..."></textarea></div>
+        <button type="submit" class="form-submit"><span data-lang="en" class="v">Send Enquiry →</span><span data-lang="no">Send Forespørsel →</span></button>
+      </form>
+      <div class="form-success" id="formSuccess"><span data-lang="en" class="v">Thank you — we will be in touch within 24 hours.</span><span data-lang="no">Takk — vi tar kontakt innen 24 timer.</span></div>
     </div>
   </div>
 </div>
 
 <footer>
   <div class="footer-logo">Nordmed<span>.</span></div>
-  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Nordmed Instruments · Oslo, Norway</span><span data-lang="no">© 2026 Nordmed Instruments · Oslo, Norge</span></div>
+  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Hussain Nordmed Instruments · Oslo, Norway</span><span data-lang="no">© 2026 Hussain Nordmed Instruments · Oslo, Norge</span></div>
   <ul class="footer-links">
     <li><a href="#products"><span data-lang="en" class="v">Products</span><span data-lang="no">Produkter</span></a></li>
     <li><a href="#why"><span data-lang="en" class="v">Why Us</span><span data-lang="no">Hvorfor Oss</span></a></li>
@@ -484,6 +699,19 @@ span[data-lang].v { display: inline; }
 </footer>
 
 <script>
+let lang = 'en';
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('[data-lang]').forEach(el => el.classList.toggle('v', el.getAttribute('data-lang') === l));
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === l));
+  document.documentElement.lang = l === 'no' ? 'nb' : 'en';
+}
+function showCat(cat) {
+  document.querySelectorAll('.prod-category').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('cat-' + cat).classList.add('active');
+  event.target.classList.add('active');
+}
 function toggleFaq(el) {
   const answer = el.nextElementSibling;
   const icon = el.querySelector('.faq-icon');
@@ -491,27 +719,6 @@ function toggleFaq(el) {
   document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
   document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
   if (!isOpen) { answer.classList.add('open'); icon.classList.add('open'); }
-}
-let lang = 'en';
-function setLang(l) {
-  lang = l;
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.classList.toggle('v', el.getAttribute('data-lang') === l);
-  });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === l);
-  });
-  document.documentElement.lang = l === 'no' ? 'nb' : 'en';
-}
-function handleSubmit(e) {
-  // Formspree handles submission via action attribute
-  e.preventDefault();
-  document.getElementById('contactForm').style.display = 'none';
-  const s = document.getElementById('formSuccess');
-  s.style.display = 'block';
-  s.querySelectorAll('[data-lang]').forEach(el => {
-    el.classList.toggle('v', el.getAttribute('data-lang') === lang);
-  });
 }
 setLang('en');
 </script>
