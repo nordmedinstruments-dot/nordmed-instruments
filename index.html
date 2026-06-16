@@ -78,7 +78,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; h
 .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
 .prod-card { background: var(--white); overflow: hidden; transition: transform 0.3s; position: relative; }
 .prod-card:hover { z-index: 2; transform: scale(1.02); box-shadow: 0 20px 60px rgba(11,29,53,0.15); }
-.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #e8eff7; border-bottom: 1px solid var(--border-light); display: block; }
+.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; border-bottom: 1px solid var(--border-light); display: block; padding: 16px; box-sizing: border-box; }
 .prod-img-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f7 0%, #d0dff0 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-light); }
 .prod-img-placeholder svg { width: 64px; height: 64px; stroke: rgba(11,29,53,0.2); fill: none; stroke-width: 1; }
 .prod-body { padding: 24px 28px 28px; }
@@ -803,7 +803,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; h
 .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
 .prod-card { background: var(--white); overflow: hidden; transition: transform 0.3s; position: relative; }
 .prod-card:hover { z-index: 2; transform: scale(1.02); box-shadow: 0 20px 60px rgba(11,29,53,0.15); }
-.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #e8eff7; border-bottom: 1px solid var(--border-light); display: block; }
+.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; border-bottom: 1px solid var(--border-light); display: block; padding: 16px; box-sizing: border-box; }
 .prod-img-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f7 0%, #d0dff0 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-light); }
 .prod-img-placeholder svg { width: 64px; height: 64px; stroke: rgba(11,29,53,0.2); fill: none; stroke-width: 1; }
 .prod-body { padding: 24px 28px 28px; }
