@@ -78,7 +78,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; h
 .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
 .prod-card { background: var(--white); overflow: hidden; transition: transform 0.3s; position: relative; }
 .prod-card:hover { z-index: 2; transform: scale(1.02); box-shadow: 0 20px 60px rgba(11,29,53,0.15); }
-.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; border-bottom: 1px solid var(--border-light); display: block; padding: 16px; box-sizing: border-box; }
+.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; padding: 24px; border-bottom: 1px solid var(--border-light); }
 .prod-img-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f7 0%, #d0dff0 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-light); }
 .prod-img-placeholder svg { width: 64px; height: 64px; stroke: rgba(11,29,53,0.2); fill: none; stroke-width: 1; }
 .prod-body { padding: 24px 28px 28px; }
@@ -287,7 +287,7 @@ span[data-lang].v { display: inline; }
     </div>
     <div class="prod-grid">
       <div class="prod-card">
-        <img class="prod-img" src="images/AWI-1020.png" alt="AWI-1020">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="80" y2="15" stroke-width="2"/><line x1="10" y1="55" x2="80" y2="20" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AWI-1020</div>
           <div class="prod-name"><span data-lang="en" class="v">Goldman-Fox Scissor</span><span data-lang="no">Goldman-Fox Saks</span></div>
@@ -298,7 +298,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AWI-1026.png" alt="AWI-1026">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="85" y2="12" stroke-width="2"/><line x1="10" y1="55" x2="85" y2="17" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AWI-1025 / 1026</div>
           <div class="prod-name"><span data-lang="en" class="v">Supercut Scissors — Gold Ring</span><span data-lang="no">Supercut Saks — Gullring</span></div>
@@ -309,7 +309,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AWI-1017.png" alt="AWI-1017">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="48" x2="90" y2="12" stroke-width="2"/><line x1="10" y1="54" x2="90" y2="18" stroke-width="2"/><circle cx="15" cy="43" r="8"/><circle cx="15" cy="57" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AWI-1017 / 1019</div>
           <div class="prod-name"><span data-lang="en" class="v">Metzenbaum Scissor</span><span data-lang="no">Metzenbaum Saks</span></div>
@@ -320,7 +320,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AWI-1003.png" alt="AWI-1003">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="75" y2="20" stroke-width="2"/><line x1="10" y1="55" x2="75" y2="25" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AWI-1003</div>
           <div class="prod-name"><span data-lang="en" class="v">Iris Scissor — Curved</span><span data-lang="no">Iris Saks — Buet</span></div>
@@ -331,7 +331,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AWI-1042.png" alt="AWI-1042">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="85" y2="15" stroke-width="1.5"/><line x1="10" y1="55" x2="85" y2="20" stroke-width="1.5"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AWI-1041 / 1042 / 1043</div>
           <div class="prod-name"><span data-lang="en" class="v">Titanium Scissors — Blue</span><span data-lang="no">Titan Saks — Blå</span></div>
@@ -342,7 +342,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AWI-1013.png" alt="AWI-1013">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="80" y2="18" stroke-width="2"/><line x1="10" y1="55" x2="80" y2="23" stroke-width="2"/><rect cx="15" cy="45" rx="4" x="7" y="40" width="16" height="22"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AWI-1013 / 1016</div>
           <div class="prod-name"><span data-lang="en" class="v">Operating Scissors B/B & S/B</span><span data-lang="no">Operasjonssaks B/B & S/B</span></div>
@@ -363,7 +363,7 @@ span[data-lang].v { display: inline; }
     </div>
     <div class="prod-grid">
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-106.png" alt="AW-05-106.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-106 to 110</div>
           <div class="prod-name"><span data-lang="en" class="v">Mayo-Hegar Needle Holder</span><span data-lang="no">Mayo-Hegar Nåleholder</span></div>
@@ -374,7 +374,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-122.png" alt="AW-05-122.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2" fill="none"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-122 to 128</div>
           <div class="prod-name"><span data-lang="en" class="v">Mayo-Hegar TC Needle Holder</span><span data-lang="no">Mayo-Hegar TC Nåleholder</span></div>
@@ -385,7 +385,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-111.png" alt="AW-05-111.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M10 35 Q50 20 90 28" stroke-width="2" fill="none"/><path d="M10 40 Q50 25 90 33" stroke-width="2" fill="none"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-111 to 117</div>
           <div class="prod-name"><span data-lang="en" class="v">Mathieu Needle Holder</span><span data-lang="no">Mathieu Nåleholder</span></div>
@@ -396,7 +396,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-137.png" alt="AW-05-137.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 Q30 10 95 28" stroke-width="1.5" fill="none"/><path d="M5 35 Q30 15 95 33" stroke-width="1.5" fill="none"/><rect x="35" y="22" width="25" height="16" rx="3"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-137 to 152</div>
           <div class="prod-name"><span data-lang="en" class="v">Castroviejo Needle Holder</span><span data-lang="no">Castroviejo Nåleholder</span></div>
@@ -407,7 +407,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-103.png" alt="AW-05-103.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="80" y2="30" stroke-width="3"/><rect x="25" y="20" width="15" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-103</div>
           <div class="prod-name"><span data-lang="en" class="v">Olsen-Hegar Needle Holder with Scissor</span><span data-lang="no">Olsen-Hegar Nåleholder med Saks</span></div>
@@ -418,7 +418,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-102.png" alt="AW-05-102.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-102</div>
           <div class="prod-name"><span data-lang="en" class="v">Derf Needle Holder</span><span data-lang="no">Derf Nåleholder</span></div>
@@ -439,7 +439,7 @@ span[data-lang].v { display: inline; }
     </div>
     <div class="prod-grid">
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-068.png" alt="AW-05-068.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="80" y2="15" stroke-width="2"/><line x1="10" y1="50" x2="80" y2="20" stroke-width="2"/><circle cx="15" cy="40" r="8"/><circle cx="15" cy="53" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-068 / 069</div>
           <div class="prod-name"><span data-lang="en" class="v">Kelly Haemostatic Forceps</span><span data-lang="no">Kelly Hemostatisk Tang</span></div>
@@ -450,7 +450,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-086.png" alt="AW-05-086.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="75" y2="18" stroke-width="1.5"/><line x1="10" y1="50" x2="75" y2="23" stroke-width="1.5"/><circle cx="15" cy="40" r="7"/><circle cx="15" cy="52" r="7"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-086 / 087 / 088 / 089</div>
           <div class="prod-name"><span data-lang="en" class="v">Halsted-Mosquito Forceps</span><span data-lang="no">Halsted-Mosquito Tang</span></div>
@@ -461,7 +461,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-043.png" alt="AW-05-043.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="15" y1="55" x2="90" y2="20" stroke-width="1.5"/><line x1="15" y1="50" x2="90" y2="15" stroke-width="1.5"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-043 to 052</div>
           <div class="prod-name"><span data-lang="en" class="v">Standard Dressing Forceps</span><span data-lang="no">Standard Forbindingstenger</span></div>
@@ -472,7 +472,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-059-adson.png" alt="AW-05-059-adson.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="15" y1="55" x2="85" y2="18" stroke-width="1.5"/><line x1="15" y1="50" x2="85" y2="13" stroke-width="1.5"/><polygon points="85,13 88,16 82,16"/><polygon points="85,18 88,21 82,21"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-059</div>
           <div class="prod-name"><span data-lang="en" class="v">Adson-Brown Tissue Forceps</span><span data-lang="no">Adson-Brown Vevstang</span></div>
@@ -483,7 +483,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-070.png" alt="AW-05-070.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="80" y2="18" stroke-width="2"/><line x1="10" y1="50" x2="80" y2="23" stroke-width="2"/><circle cx="15" cy="40" r="8"/><circle cx="15" cy="53" r="8"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-070 / 071</div>
           <div class="prod-name"><span data-lang="en" class="v">Crile Haemostatic Forceps</span><span data-lang="no">Crile Hemostatisk Tang</span></div>
@@ -494,7 +494,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-100.png" alt="AW-05-100.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="90" y2="30" stroke-width="20" stroke-opacity="0.05"/><line x1="10" y1="30" x2="90" y2="30" stroke-width="2"/><ellipse cx="50" cy="30" rx="20" ry="10"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-100 / 101</div>
           <div class="prod-name"><span data-lang="en" class="v">Forester Sponge Forceps</span><span data-lang="no">Forester Svampetang</span></div>
@@ -515,7 +515,7 @@ span[data-lang].v { display: inline; }
     </div>
     <div class="prod-grid">
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-153.png" alt="AW-05-153.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 L95 30" stroke-width="1.5"/><path d="M5 33 L95 33" stroke-width="1.5"/><rect x="35" y="24" width="30" height="15" rx="10"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-153 / 154 / 163 / 164</div>
           <div class="prod-name"><span data-lang="en" class="v">Micro Needle Holders — Stainless</span><span data-lang="no">Mikro Nåleholdere — Rustfritt</span></div>
@@ -526,7 +526,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-155.png" alt="AW-05-155.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 L95 30" stroke-width="1.5"/><path d="M5 33 L95 33" stroke-width="1.5"/><rect x="35" y="24" width="30" height="15" rx="10" fill="rgba(184,147,90,0.2)" stroke="rgba(184,147,90,0.6)"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-155 to 168</div>
           <div class="prod-name"><span data-lang="en" class="v">Micro Needle Holders — TC Inserts</span><span data-lang="no">Mikro Nåleholdere — TC Innsatser</span></div>
@@ -537,7 +537,7 @@ span[data-lang].v { display: inline; }
         </div>
       </div>
       <div class="prod-card">
-        <img class="prod-img" src="images/AW-05-159.png" alt="AW-05-159.png">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="55" x2="92" y2="20" stroke-width="1"/><line x1="10" y1="50" x2="92" y2="15" stroke-width="1"/></svg></div>
         <div class="prod-body">
           <div class="prod-code">AW-05-159 to 172</div>
           <div class="prod-name"><span data-lang="en" class="v">Micro Forceps — Stainless</span><span data-lang="no">Mikro Tenger — Rustfritt</span></div>
@@ -690,7 +690,7 @@ span[data-lang].v { display: inline; }
 
 <footer>
   <div class="footer-logo">Nordmed<span>.</span></div>
-  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Hussain Nordmed Instruments · Oslo, Norway</span><span data-lang="no">© 2026 Hussain Nordmed Instruments · Oslo, Norge</span></div>
+  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Hussain Nordmed Instruments · Org.nr. 937 880 936 · Oslo, Norway</span><span data-lang="no">© 2026 Hussain Nordmed Instruments · Org.nr. 937 880 936 · Oslo, Norge</span></div>
   <ul class="footer-links">
     <li><a href="#products"><span data-lang="en" class="v">Products</span><span data-lang="no">Produkter</span></a></li>
     <li><a href="#why"><span data-lang="en" class="v">Why Us</span><span data-lang="no">Hvorfor Oss</span></a></li>
@@ -803,7 +803,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 6%; h
 .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
 .prod-card { background: var(--white); overflow: hidden; transition: transform 0.3s; position: relative; }
 .prod-card:hover { z-index: 2; transform: scale(1.02); box-shadow: 0 20px 60px rgba(11,29,53,0.15); }
-.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; border-bottom: 1px solid var(--border-light); display: block; padding: 16px; box-sizing: border-box; }
+.prod-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: #f0f4f8; padding: 24px; border-bottom: 1px solid var(--border-light); }
 .prod-img-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8f0f7 0%, #d0dff0 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-light); }
 .prod-img-placeholder svg { width: 64px; height: 64px; stroke: rgba(11,29,53,0.2); fill: none; stroke-width: 1; }
 .prod-body { padding: 24px 28px 28px; }
@@ -988,6 +988,295 @@ span[data-lang].v { display: inline; }
 </div>
 
 <!-- PRODUCTS -->
+<div class="products" id="products">
+  <div class="products-header">
+    <div>
+      <div class="section-eyebrow"><span data-lang="en" class="v">Our Product Range</span><span data-lang="no">Vårt Produktsortiment</span></div>
+      <div class="section-h2"><span data-lang="en" class="v">Clinical <em>instruments</em></span><span data-lang="no">Kliniske <em>instrumenter</em></span></div>
+    </div>
+    <div class="ph-right"><span data-lang="en" class="v">All instruments CE marked, ISO certified, and available for sample demonstration in Oslo. Contact us for pricing.</span><span data-lang="no">Alle instrumenter CE-merket, ISO-sertifisert og tilgjengelig for prøvedemonstrasjon i Oslo. Kontakt oss for priser.</span></div>
+  </div>
+
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="showCat('scissors')"><span data-lang="en" class="v">Surgical Scissors</span><span data-lang="no">Kirurgisk Saks</span></button>
+    <button class="cat-tab" onclick="showCat('needle')"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></button>
+    <button class="cat-tab" onclick="showCat('forceps')"><span data-lang="en" class="v">Forceps & Clamps</span><span data-lang="no">Tenger & Klemmer</span></button>
+    <button class="cat-tab" onclick="showCat('micro')"><span data-lang="en" class="v">Micro Instruments</span><span data-lang="no">Mikroinstrumenter</span></button>
+  </div>
+
+  <!-- SCISSORS -->
+  <div class="prod-category active" id="cat-scissors">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Surgical Scissors</span><span data-lang="no">Kirurgisk Saks</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Standard, Supercut, TC and Titanium variants. Essential for tissue dissection, suture cutting, and oral surgery.</span><span data-lang="no">Standard, Supercut, TC og Titan-varianter. Uunnværlig for vevsdisseksjon, sutursklipp og oralkirurgi.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="80" y2="15" stroke-width="2"/><line x1="10" y1="55" x2="80" y2="20" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1020</div>
+          <div class="prod-name"><span data-lang="en" class="v">Goldman-Fox Scissor</span><span data-lang="no">Goldman-Fox Saks</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">The most widely used scissor in periodontal and oral surgery. Curved blades allow precise tissue cutting with full visibility. Standard choice in Norwegian dental clinics.</span><span data-lang="no">Den mest brukte saksen i periodontal og oralkirurgi. Buede blader gir presis vevsklipping med full sikt. Standardvalg i norske tannklinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">130mm</span><span class="prod-spec"><span data-lang="en" class="v">Curved</span><span data-lang="no">Buet</span></span><span class="prod-spec">Stainless Steel</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="85" y2="12" stroke-width="2"/><line x1="10" y1="55" x2="85" y2="17" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1025 / 1026</div>
+          <div class="prod-name"><span data-lang="en" class="v">Supercut Scissors — Gold Ring</span><span data-lang="no">Supercut Saks — Gullring</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Micro-serrated edge on one blade prevents tissue slippage. TC gold ring handles provide superior grip. Preferred by oral surgeons for flap procedures and suture work.</span><span data-lang="no">Mikrosagget kant på ett blad hindrer vevsgliding. TC-gullfargede håndtak gir overlegen grep. Foretrekkes av oralkirurger til flapoperasjoner og suturer.</span></p>
+          <div class="prod-specs"><span class="prod-spec">115–130mm</span><span class="prod-spec">Supercut</span><span class="prod-spec">TC Gold Ring</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="48" x2="90" y2="12" stroke-width="2"/><line x1="10" y1="54" x2="90" y2="18" stroke-width="2"/><circle cx="15" cy="43" r="8"/><circle cx="15" cy="57" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1017 / 1019</div>
+          <div class="prod-name"><span data-lang="en" class="v">Metzenbaum Scissor</span><span data-lang="no">Metzenbaum Saks</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Long-handled, short-bladed dissecting scissors for fine tissue work. Used in both dental surgery and general surgical clinics. Available in standard and TC Supercut versions.</span><span data-lang="no">Langskaftede, kortbladede disseksjonssaks for fint vevsarbeid. Brukes i både tannkirurgi og generelle kirurgiske klinikker. Tilgjengelig i standard og TC Supercut-versjoner.</span></p>
+          <div class="prod-specs"><span class="prod-spec">145–200mm</span><span class="prod-spec">Straight/Curved</span><span class="prod-spec">TC available</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="75" y2="20" stroke-width="2"/><line x1="10" y1="55" x2="75" y2="25" stroke-width="2"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1003</div>
+          <div class="prod-name"><span data-lang="en" class="v">Iris Scissor — Curved</span><span data-lang="no">Iris Saks — Buet</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fine, sharp-pointed curved scissors for delicate suture cutting and tissue trimming. A daily-use essential in every dental surgical kit. Available in standard, titanium and BLKN supercut variants.</span><span data-lang="no">Fine, spissformede buede saks for delikat sutursklipping og vevsklipping. Et dagligbruk essensielt i hvert tannkirurgisk sett. Tilgjengelig i standard, titan og BLKN supercut-varianter.</span></p>
+          <div class="prod-specs"><span class="prod-spec">115mm</span><span class="prod-spec"><span data-lang="en" class="v">Curved</span><span data-lang="no">Buet</span></span><span class="prod-spec">Titanium available</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="85" y2="15" stroke-width="1.5"/><line x1="10" y1="55" x2="85" y2="20" stroke-width="1.5"/><circle cx="15" cy="45" r="8"/><circle cx="15" cy="58" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1041 / 1042 / 1043</div>
+          <div class="prod-name"><span data-lang="en" class="v">Titanium Scissors — Blue</span><span data-lang="no">Titan Saks — Blå</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Full titanium construction — lighter, stronger, and corrosion-resistant. The blue finish is non-reflective, reducing glare under surgical lighting. Popular in aesthetic and implant clinics.</span><span data-lang="no">Fullstendig titankonstruksjon — lettere, sterkere og korrosjonsbestandig. Den blå overflaten er ikke-reflekterende, reduserer gjenskinn under kirurgisk belysning. Populær i estetiske klinikker og implantklinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">115–160mm</span><span class="prod-spec">Titanium</span><span class="prod-spec">Non-reflective</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">Titanium</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="50" x2="80" y2="18" stroke-width="2"/><line x1="10" y1="55" x2="80" y2="23" stroke-width="2"/><rect cx="15" cy="45" rx="4" x="7" y="40" width="16" height="22"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AWI-1013 / 1016</div>
+          <div class="prod-name"><span data-lang="en" class="v">Operating Scissors B/B & S/B</span><span data-lang="no">Operasjonssaks B/B & S/B</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">General-purpose operating scissors for surgical clinics. Blunt/blunt and sharp/blunt configurations for safe tissue dissection. Available in multiple sizes from 145mm to 200mm.</span><span data-lang="no">Generelle operasjonssaks for kirurgiske klinikker. Butt/butt og skarp/butt konfigurasjon for trygg vevsdisseksjon. Tilgjengelig i flere størrelser fra 145mm til 200mm.</span></p>
+          <div class="prod-specs"><span class="prod-spec">145–200mm</span><span class="prod-spec">B/B & S/B</span><span class="prod-spec">Stainless Steel</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEEDLE HOLDERS -->
+  <div class="prod-category" id="cat-needle">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Needle Holders</span><span data-lang="no">Nåleholdere</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Standard, TC, Castroviejo and Mathieu variants. Used daily for suturing after extractions, implants, and surgical procedures.</span><span data-lang="no">Standard, TC, Castroviejo og Mathieu-varianter. Brukes daglig for suturering etter ekstraksjoner, implantater og kirurgiske prosedyrer.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-106 to 110</div>
+          <div class="prod-name"><span data-lang="en" class="v">Mayo-Hegar Needle Holder</span><span data-lang="no">Mayo-Hegar Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">The most commonly used needle holder in dental and general surgery. Ratchet lock mechanism, textured jaws for secure needle grip. Available from 14cm to 20cm. The clinical workhorse every clinic needs in stock.</span><span data-lang="no">Den mest brukte nåleholderen i tann- og generell kirurgi. Ratchet-låsmekanisme, strukturerte kjever for sikkert nålgrep. Tilgjengelig fra 14cm til 20cm. Klinikkens arbeidshest som alle klinikker trenger på lager.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14–20cm</span><span class="prod-spec">Ratchet Lock</span><span class="prod-spec">Stainless Steel</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2" fill="none"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-122 to 128</div>
+          <div class="prod-name"><span data-lang="en" class="v">Mayo-Hegar TC Needle Holder</span><span data-lang="no">Mayo-Hegar TC Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Tungsten Carbide inserts in the jaws provide superior grip and last significantly longer than standard needle holders. Gold ring handles are the universal identifier for TC quality. Ideal for high-volume practices.</span><span data-lang="no">Wolframkarbid-innsatser i kjevene gir overlegen grep og varer betydelig lenger enn standard nåleholdere. Gullring-håndtak er den universelle identifikatoren for TC-kvalitet. Ideelt for høyvolum klinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12.5–18cm</span><span class="prod-spec">TC Inserts</span><span class="prod-spec">Gold Ring</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">TC Inserts</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M10 35 Q50 20 90 28" stroke-width="2" fill="none"/><path d="M10 40 Q50 25 90 33" stroke-width="2" fill="none"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-111 to 117</div>
+          <div class="prod-name"><span data-lang="en" class="v">Mathieu Needle Holder</span><span data-lang="no">Mathieu Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Spring-loaded, palm-grip design — no finger rings. Excellent for suturing in the anterior mouth where space is limited. Preferred by dentists for mucosal sutures after extractions and implant surgery.</span><span data-lang="no">Fjærbelastet palme-grep design — ingen fingerringer. Utmerket for suturering i den fremre munnen der plassen er begrenset. Foretrekkes av tannleger for slimhinnestyr etter ekstraksjoner og implantatkirurgi.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14–20cm</span><span class="prod-spec">Spring Action</span><span class="prod-spec">Palm Grip</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 Q30 10 95 28" stroke-width="1.5" fill="none"/><path d="M5 35 Q30 15 95 33" stroke-width="1.5" fill="none"/><rect x="35" y="22" width="25" height="16" rx="3"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-137 to 152</div>
+          <div class="prod-name"><span data-lang="en" class="v">Castroviejo Needle Holder</span><span data-lang="no">Castroviejo Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Precision micro needle holder for delicate suturing. Spring-lock or with lock variants. Essential for implant microsurgery, periodontal flap closure, and aesthetic dental procedures requiring extremely fine sutures.</span><span data-lang="no">Presisjons mikro nåleholder for delikat suturering. Fjærlås eller med lås-varianter. Uunnværlig for implant mikrokirurgi, periodontal flaplukning og estetiske dentale prosedyrer som krever ekstremt fine suturer.</span></p>
+          <div class="prod-specs"><span class="prod-spec">13–14cm</span><span class="prod-spec">Micro Precision</span><span class="prod-spec">TC available</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="80" y2="30" stroke-width="3"/><rect x="25" y="20" width="15" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-103</div>
+          <div class="prod-name"><span data-lang="en" class="v">Olsen-Hegar Needle Holder with Scissor</span><span data-lang="no">Olsen-Hegar Nåleholder med Saks</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Combined needle holder and scissor in one instrument — reduces instrument exchanges during suturing. Highly efficient for busy dental clinics where speed and simplicity matter.</span><span data-lang="no">Kombinert nåleholder og saks i ett instrument — reduserer instrumentbytte under suturering. Svært effektivt for travle tannklinikker der hastighet og enkelhet er viktig.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14cm</span><span class="prod-spec">Combo Tool</span><span class="prod-spec">Ratchet Lock</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="85" y2="30" stroke-width="3"/><rect x="30" y="20" width="20" height="20" rx="2"/><circle cx="15" cy="22" r="7"/><circle cx="15" cy="38" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-102</div>
+          <div class="prod-name"><span data-lang="en" class="v">Derf Needle Holder</span><span data-lang="no">Derf Nåleholder</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Compact 12.5cm needle holder for working in confined intraoral spaces. Ideal for anterior suturing and pediatric dental procedures where a full-size needle holder is too large.</span><span data-lang="no">Kompakt 12.5cm nåleholder for arbeid i begrensede intraorale rom. Ideelt for fremre suturering og pediatriske tannprosedyrer der en fullstørrelse nåleholder er for stor.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12.5cm</span><span class="prod-spec">Compact</span><span class="prod-spec">Ratchet Lock</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORCEPS -->
+  <div class="prod-category" id="cat-forceps">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Forceps & Clamps</span><span data-lang="no">Tenger & Klemmer</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Haemostatic forceps, tissue forceps, dressing forceps. Essential for bleeding control, tissue handling, and wound management.</span><span data-lang="no">Hemostatiske tenger, vevstenger, forbindingstenger. Uunnværlig for blødningskontroll, vevshåndtering og sårbehandling.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="80" y2="15" stroke-width="2"/><line x1="10" y1="50" x2="80" y2="20" stroke-width="2"/><circle cx="15" cy="40" r="8"/><circle cx="15" cy="53" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-068 / 069</div>
+          <div class="prod-name"><span data-lang="en" class="v">Kelly Haemostatic Forceps</span><span data-lang="no">Kelly Hemostatisk Tang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">The essential haemostat for bleeding control in dental and surgical procedures. Curved and straight variants for different applications. Standard in every Norwegian surgical kit.</span><span data-lang="no">Den essensielle hemostaten for blødningskontroll i tann- og kirurgiske prosedyrer. Buede og rette varianter for ulike bruksområder. Standard i hvert norsk kirurgisk sett.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14cm</span><span class="prod-spec">Curved & Straight</span><span class="prod-spec">Ratchet</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="75" y2="18" stroke-width="1.5"/><line x1="10" y1="50" x2="75" y2="23" stroke-width="1.5"/><circle cx="15" cy="40" r="7"/><circle cx="15" cy="52" r="7"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-086 / 087 / 088 / 089</div>
+          <div class="prod-name"><span data-lang="en" class="v">Halsted-Mosquito Forceps</span><span data-lang="no">Halsted-Mosquito Tang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fine-tipped haemostatic forceps for controlling bleeding from small vessels. Used in dental extractions and oral surgery. Available in straight and curved at 12.5cm — compact enough for intraoral use.</span><span data-lang="no">Finspissede hemostatiske tenger for kontroll av blødning fra små blodkar. Brukes i tannekstraksjoner og oralkirurgi. Tilgjengelig i rett og buet ved 12.5cm — kompakt nok for intraorale bruk.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12.5cm</span><span class="prod-spec">Curved & Straight</span><span class="prod-spec">Fine Tip</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="15" y1="55" x2="90" y2="20" stroke-width="1.5"/><line x1="15" y1="50" x2="90" y2="15" stroke-width="1.5"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-043 to 052</div>
+          <div class="prod-name"><span data-lang="en" class="v">Standard Dressing Forceps</span><span data-lang="no">Standard Forbindingstenger</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Serrated, non-locking forceps for handling dressings, gauze, and materials. Available in 10–30cm. A high-consumption item that clinics reorder regularly — excellent entry product for new clinic relationships.</span><span data-lang="no">Takkede, ikke-låsende tenger for håndtering av bandasjer, gasbind og materialer. Tilgjengelig i 10–30cm. En høyforbruksvare som klinikker bestiller regelmessig på nytt — utmerket inngangsproduk for nye klinikkforhold.</span></p>
+          <div class="prod-specs"><span class="prod-spec">10–30cm</span><span class="prod-spec">Non-locking</span><span class="prod-spec">Serrated</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="15" y1="55" x2="85" y2="18" stroke-width="1.5"/><line x1="15" y1="50" x2="85" y2="13" stroke-width="1.5"/><polygon points="85,13 88,16 82,16"/><polygon points="85,18 88,21 82,21"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-059</div>
+          <div class="prod-name"><span data-lang="en" class="v">Adson-Brown Tissue Forceps</span><span data-lang="no">Adson-Brown Vevstang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fine 12cm tissue forceps with 7x7 teeth for secure tissue grip without crushing. Widely used in dental flap surgery, wound closure, and periodontal procedures. Lightweight and precise.</span><span data-lang="no">Fine 12cm vevstenger med 7x7 tenner for sikkert vevsgrep uten å knuse. Mye brukt i tannflapkirurgi, sårlukning og periodontale prosedyrer. Lett og presis.</span></p>
+          <div class="prod-specs"><span class="prod-spec">12cm</span><span class="prod-spec">7×7 Teeth</span><span class="prod-spec">Fine Tip</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="45" x2="80" y2="18" stroke-width="2"/><line x1="10" y1="50" x2="80" y2="23" stroke-width="2"/><circle cx="15" cy="40" r="8"/><circle cx="15" cy="53" r="8"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-070 / 071</div>
+          <div class="prod-name"><span data-lang="en" class="v">Crile Haemostatic Forceps</span><span data-lang="no">Crile Hemostatisk Tang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Fully serrated jaws provide maximum grip for haemostasis. Slightly larger than mosquito forceps, suitable for medium vessel control in oral surgery and general procedures.</span><span data-lang="no">Fullt takkede kjever gir maksimalt grep for hemostase. Litt større enn mosquito-tenger, egnet for medium karkontroll i oralkirurgi og generelle prosedyrer.</span></p>
+          <div class="prod-specs"><span class="prod-spec">14cm</span><span class="prod-spec">Full Serration</span><span class="prod-spec">Curved & Straight</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="30" x2="90" y2="30" stroke-width="20" stroke-opacity="0.05"/><line x1="10" y1="30" x2="90" y2="30" stroke-width="2"/><ellipse cx="50" cy="30" rx="20" ry="10"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-100 / 101</div>
+          <div class="prod-name"><span data-lang="en" class="v">Forester Sponge Forceps</span><span data-lang="no">Forester Svampetang</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Ring-handled forceps for holding sponges, gauze swabs, and dressings during procedures. A consumable purchase made by every clinic — high repeat-order potential. Available at 25cm.</span><span data-lang="no">Ringformede tenger for holding av svamper, gasbindkompresser og bandasjer under prosedyrer. Et forbruksinnkjøp gjort av hver klinikk — høyt gjentaksbestillingspotensial. Tilgjengelig ved 25cm.</span></p>
+          <div class="prod-specs"><span class="prod-spec">25cm</span><span class="prod-spec">Ring Handle</span><span class="prod-spec">Ratchet</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MICRO -->
+  <div class="prod-category" id="cat-micro">
+    <div class="cat-banner">
+      <div class="cat-banner-title"><span data-lang="en" class="v">Micro Instruments</span><span data-lang="no">Mikroinstrumenter</span></div>
+      <div class="cat-banner-desc"><span data-lang="en" class="v">Micro needle holders and micro forceps for implant surgery, periodontal microsurgery, and aesthetic procedures requiring extreme precision.</span><span data-lang="no">Mikro nåleholdere og mikro tenger for implantatkirurgi, periodontal mikrokirurgi og estetiske prosedyrer som krever ekstrem presisjon.</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 L95 30" stroke-width="1.5"/><path d="M5 33 L95 33" stroke-width="1.5"/><rect x="35" y="24" width="30" height="15" rx="10"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-153 / 154 / 163 / 164</div>
+          <div class="prod-name"><span data-lang="en" class="v">Micro Needle Holders — Stainless</span><span data-lang="no">Mikro Nåleholdere — Rustfritt</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Ultra-precise spring-action needle holders for microsurgical suturing. 15cm and 18cm versions. Designed for 6-0 to 9-0 sutures in implant and periodontal microsurgery — a growing segment in Norwegian specialist clinics.</span><span data-lang="no">Ultrapresise fjæraksjon nåleholdere for mikrokirurgisk suturering. 15cm og 18cm versjoner. Designet for 6-0 til 9-0 suturer i implantat og periodontal mikrokirurgi — et voksende segment i norske spesialistklinikker.</span></p>
+          <div class="prod-specs"><span class="prod-spec">15–18cm</span><span class="prod-spec">Spring Action</span><span class="prod-spec">Microsurgery</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><path d="M5 30 L95 30" stroke-width="1.5"/><path d="M5 33 L95 33" stroke-width="1.5"/><rect x="35" y="24" width="30" height="15" rx="10" fill="rgba(184,147,90,0.2)" stroke="rgba(184,147,90,0.6)"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-155 to 168</div>
+          <div class="prod-name"><span data-lang="en" class="v">Micro Needle Holders — TC Inserts</span><span data-lang="no">Mikro Nåleholdere — TC Innsatser</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Tungsten Carbide tipped micro needle holders — the premium option for specialist clinics. Superior jaw grip at microscale. Available in yellow handle TC versions at 15cm and 18cm.</span><span data-lang="no">Wolframkarbid-spissede mikro nåleholdere — premiumbakgrunnen for spesialistklinikker. Overlegen kjeve-grep på mikronivå. Tilgjengelig i gult håndtak TC-versjoner ved 15cm og 18cm.</span></p>
+          <div class="prod-specs"><span class="prod-spec">15–18cm</span><span class="prod-spec">TC Inserts</span><span class="prod-spec">Yellow Handle</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">TC Inserts</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-placeholder"><svg viewBox="0 0 100 60"><line x1="10" y1="55" x2="92" y2="20" stroke-width="1"/><line x1="10" y1="50" x2="92" y2="15" stroke-width="1"/></svg></div>
+        <div class="prod-body">
+          <div class="prod-code">AW-05-159 to 172</div>
+          <div class="prod-name"><span data-lang="en" class="v">Micro Forceps — Stainless</span><span data-lang="no">Mikro Tenger — Rustfritt</span></div>
+          <p class="prod-desc"><span data-lang="en" class="v">Ultra-fine dissecting and tissue forceps for microsurgical procedures. Available in multiple tip configurations at 15cm and 18cm. Paired with micro needle holders for complete microsurgical setups.</span><span data-lang="no">Ultrafine disseksjons- og vevstenger for mikrokirurgiske prosedyrer. Tilgjengelig i flere spissekonfigurasjoner ved 15cm og 18cm. Parret med mikro nåleholdere for komplette mikrokirurgiske oppsett.</span></p>
+          <div class="prod-specs"><span class="prod-spec">15–18cm</span><span class="prod-spec">Multiple Tips</span><span class="prod-spec">Microsurgery</span></div>
+          <div class="prod-badges"><span class="prod-badge ce">CE</span><span class="prod-badge steel">German Steel</span><span class="prod-badge iso">ISO 13485</span></div>
+          <a href="#contact" class="prod-enquire"><span data-lang="en" class="v">Request Sample →</span><span data-lang="no">Be om Prøve →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
 <div class="why" id="why">
   <div class="why-header">
     <div class="section-eyebrow"><span data-lang="en" class="v">Why Nordmed</span><span data-lang="no">Hvorfor Nordmed</span></div>
@@ -1126,7 +1415,7 @@ span[data-lang].v { display: inline; }
 
 <footer>
   <div class="footer-logo">Nordmed<span>.</span></div>
-  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Hussain Nordmed Instruments · Oslo, Norway</span><span data-lang="no">© 2026 Hussain Nordmed Instruments · Oslo, Norge</span></div>
+  <div class="footer-copy"><span data-lang="en" class="v">© 2026 Hussain Nordmed Instruments · Org.nr. 937 880 936 · Oslo, Norway</span><span data-lang="no">© 2026 Hussain Nordmed Instruments · Org.nr. 937 880 936 · Oslo, Norge</span></div>
   <ul class="footer-links">
     <li><a href="#products"><span data-lang="en" class="v">Products</span><span data-lang="no">Produkter</span></a></li>
     <li><a href="#why"><span data-lang="en" class="v">Why Us</span><span data-lang="no">Hvorfor Oss</span></a></li>
@@ -1134,5 +1423,29 @@ span[data-lang].v { display: inline; }
   </ul>
 </footer>
 
+<script>
+let lang = 'en';
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('[data-lang]').forEach(el => el.classList.toggle('v', el.getAttribute('data-lang') === l));
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === l));
+  document.documentElement.lang = l === 'no' ? 'nb' : 'en';
+}
+function showCat(cat) {
+  document.querySelectorAll('.prod-category').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('cat-' + cat).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const icon = el.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+  if (!isOpen) { answer.classList.add('open'); icon.classList.add('open'); }
+}
+setLang('en');
+</script>
 </body>
 </html>
